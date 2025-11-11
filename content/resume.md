@@ -7,7 +7,7 @@ description: Senior Software Architect and Web Developer with experience designi
 
 Senior Software Architect | Senior Web Developer
 Springfield, VA
-Email: egan.matthew@me.com • Phone: (570) 814-3470
+Email: egan.matthew@me.com
 LinkedIn: linkedin.com/in/matthew-egan-2a1b369 • GitHub: github.com/matthewegan
 
 ## Summary
