@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+/* Base layer - HTML element defaults */
+@layer base {
+  * {
+    @apply border-slate-700;
+  }
+
+  html {
+    font-family:
+      ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-50;
+  }
+
+  /* Ensure proper focus visibility for accessibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-teal-400;
+  }
+
+  /* Screen reader only utility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .sr-only:not(.focus\:not-sr-only:focus) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+/* Component layer - Reusable terminal components */
+@layer components {
+  /* Terminal window chrome */
+  .terminal-window {
+    @apply border border-slate-700 bg-slate-900/90;
+    border-radius: 2px;
+    box-shadow:
+      0 0 0 1px rgba(148, 163, 184, 0.1),
+      0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .terminal-header {
+    @apply border-b border-slate-700 bg-slate-800/50 px-4 py-2 font-mono text-sm;
+  }
+
+  /* CRT effect - scanlines (respects prefers-reduced-motion) */
+  .crt-scanlines {
+    position: relative;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .crt-scanlines::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15) 0px,
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+    }
+  }
+
+  /* CRT effect - soft glow */
+  .crt-glow {
+    box-shadow:
+      inset 0 0 40px rgba(20, 184, 166, 0.05),
+      inset 0 0 80px rgba(20, 184, 166, 0.02);
+  }
+
+  /* Power LED indicator */
+  .power-led {
+    @apply inline-block h-2 w-2 rounded-full bg-teal-400;
+    box-shadow:
+      0 0 4px rgba(20, 184, 166, 0.8),
+      0 0 8px rgba(20, 184, 166, 0.4);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .power-led {
+      box-shadow: none;
+    }
+  }
+
+  /* ASCII section divider */
+  .ascii-divider {
+    @apply my-6 flex items-center justify-center text-slate-600;
+  }
+
+  .ascii-divider::before {
+    content: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━";
+    @apply font-mono text-xs;
+  }
+
+  /* Details/Summary styles for collapsible sections */
+  details {
+    @apply my-4;
+  }
+
+  summary {
+    @apply cursor-pointer select-none py-2 font-mono text-sm font-semibold text-teal-400;
+    @apply hover:text-teal-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::before {
+    content: "[▸] ";
+    @apply inline-block transition-transform;
+  }
+
+  details[open] summary::before {
+    content: "[▾] ";
+  }
+
+  /* Thumb-friendly touch targets for mobile */
+  @media (max-width: 768px) {
+    summary,
+    button,
+    a {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+}
+
+/* Print styles - clean, single-column PDF */
+@media print {
+  @page {
+    margin: 0.75in;
+    size: letter portrait;
+  }
+
+  html {
+    @apply bg-white text-slate-900;
+  }
+
+  body {
+    @apply bg-white text-slate-900;
+  }
+
+  /* Hide decorative elements */
+  .crt-scanlines::before,
+  .crt-glow,
+  .power-led,
+  .terminal-header,
+  nav,
+  button {
+    display: none !important;
+  }
+
+  /* Remove background colors and borders for clean print */
+  .terminal-window {
+    border: none !important;
+    background: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Make links visible */
+  a[href]::after {
+    content: " (" attr(href) ")";
+    @apply text-xs text-slate-600;
+  }
+
+  /* Prevent page breaks inside elements */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li {
+    page-break-inside: avoid;
+  }
+
+  /* Keep sections together when possible */
+  section,
+  article {
+    page-break-inside: avoid;
+  }
+
+  /* Expand collapsed sections for print */
+  details {
+    display: block !important;
+  }
+
+  summary {
+    display: none !important;
+  }
+
+  details > *:not(summary) {
+    display: block !important;
+  }
+}
