@@ -14,7 +14,7 @@
 <script setup>
 import { computed, useRuntimeConfig } from "#imports";
 const props = defineProps({
-  id: { type: String, required: false },
+  id: { type: String, required: false, default: undefined },
 });
 const { headings } = useRuntimeConfig().public.mdc;
 const generate = computed(
