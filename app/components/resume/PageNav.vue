@@ -8,13 +8,18 @@ const sections = [
   { id: "profiles", label: "Profiles" },
 ];
 
-const scrollToSection = (id: string) => {
+function scrollToSection(id: string) {
   const element = document.getElementById(id);
   if (element) {
     element.scrollIntoView({ behavior: "smooth", block: "start" });
     isOpen.value = false;
   }
-};
+}
+
+function onToggle(event: Event) {
+  const toggleEvent = event as ToggleEvent;
+  isOpen.value = toggleEvent.newState === "open";
+}
 </script>
 
 <template>
@@ -24,10 +29,10 @@ const scrollToSection = (id: string) => {
   >
     <!-- Mobile menu button -->
     <button
+      popovertarget="page-nav-menu"
       class="flex w-full items-center justify-between px-4 py-2 font-mono text-sm text-teal-400 md:hidden"
       :aria-expanded="isOpen"
       aria-controls="page-nav-menu"
-      @click="isOpen = !isOpen"
     >
       <span>[Menu]</span>
       <span aria-hidden="true">{{ isOpen ? "▴" : "▾" }}</span>
@@ -36,8 +41,9 @@ const scrollToSection = (id: string) => {
     <!-- Desktop nav (always visible) / Mobile nav (collapsible) -->
     <ul
       id="page-nav-menu"
-      class="flex-col md:flex md:flex-row md:gap-1"
-      :class="isOpen ? 'flex' : 'hidden md:flex'"
+      class="flex-col md:flex md:flex-row md:gap-1 border-0 m-0 p-0 md:static md:bg-transparent md:border-0"
+      popover="auto"
+      @toggle="onToggle"
     >
       <li
         v-for="section in sections"
@@ -55,3 +61,36 @@ const scrollToSection = (id: string) => {
     </ul>
   </nav>
 </template>
+
+<style scoped>
+/* Mobile: Position popover below the button */
+#page-nav-menu:popover-open {
+  /* Position below the sticky nav */
+  position: fixed;
+  top: calc(42px + 44px); /* sticky top offset + button height */
+  left: 0;
+  right: 0;
+  width: 100%;
+
+  background-color: --alpha(var(--color-slate-900) / 95%);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-slate-700);
+
+  z-index: 30;
+}
+
+/* Desktop: Override popover behavior - always visible, horizontal layout */
+@media (min-width: 768px) {
+  #page-nav-menu:popover-open {
+    /* Reset popover positioning on desktop */
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: auto;
+    background: transparent;
+    backdrop-filter: none;
+    border: none;
+  }
+}
+</style>
