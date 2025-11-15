@@ -86,10 +86,17 @@ function closeMenu(): void {
   left: 0;
   right: 0;
   width: 100%;
+  padding-top: 0.5rem;
   background-color: rgb(15 23 42 / 0.95);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgb(51 65 85);
+  border-left: 3px solid rgb(45 212 191);
   z-index: 39;
+}
+
+/* Remove bottom border from last item to avoid stray line with single items */
+#primary-nav-menu:popover-open li:last-child {
+  border-bottom: none;
 }
 
 @media (min-width: 768px) {

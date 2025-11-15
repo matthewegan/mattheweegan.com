@@ -80,9 +80,11 @@ nav {
   left: 0;
   right: 0;
   width: 100%;
-  background-color: rgb(15 23 42 / 0.95);
+  padding-top: 0.5rem;
+  background-color: rgb(30 41 59 / 0.95);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgb(51 65 85);
+  border-left: 3px solid rgb(251 191 36);
   z-index: 30;
 }
 
