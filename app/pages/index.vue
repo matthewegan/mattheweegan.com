@@ -4,18 +4,21 @@ const { data: resume } = await useAsyncData("resume", () =>
 );
 
 if (!resume.value) {
-  throw createError({ statusCode: 404, message: "Resume not found" });
+  throw createError({
+    statusCode: 404,
+    message: "Resume not found",
+  });
 }
 
 useSeoMeta({
-  title: () => resume.value?.title,
-  description: () => resume.value?.description,
-  ogTitle: () => resume.value?.title,
-  ogDescription: () => resume.value?.description,
+  title: resume.value.title,
+  description: resume.value.description,
+  ogTitle: resume.value.title,
+  ogDescription: resume.value.description,
   ogType: "profile",
   twitterCard: "summary",
-  twitterTitle: () => resume.value?.title,
-  twitterDescription: () => resume.value?.description,
+  twitterTitle: resume.value.title,
+  twitterDescription: resume.value.description,
 });
 
 useHead({
@@ -45,35 +48,12 @@ useHead({
 </script>
 
 <template>
-  <div class="min-h-screen bg-slate-950 text-slate-50 crt-scanlines crt-glow">
-    <!-- Skip to content link for accessibility -->
-    <a
-      href="#main-content"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-teal-500 focus:text-slate-950 focus:font-mono focus:border focus:border-teal-400"
-    >
-      Skip to content
-    </a>
-
-    <!-- Terminal header - sticky at top -->
-    <header class="terminal-header sticky top-0 z-40">
-      <div class="flex items-center gap-2">
-        <span class="power-led" aria-label="Power indicator" />
-        <span class="text-teal-400">matthew@egan</span>
-        <span class="text-slate-500">:</span>
-        <span class="text-amber-400">~</span>
-        <span class="text-slate-500">$</span>
-        <span class="text-slate-300">cat resume.md</span>
-      </div>
-    </header>
-
+  <div>
     <!-- Page navigation -->
     <ResumePageNav />
 
     <!-- Main content -->
-    <main
-      id="main-content"
-      class="container mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8"
-    >
+    <PageMain>
       <article class="terminal-window p-6 sm:p-8">
         <ContentRenderer
           v-if="resume"
@@ -81,6 +61,6 @@ useHead({
           class="prose prose-invert max-w-none font-mono"
         />
       </article>
-    </main>
+    </PageMain>
   </div>
 </template>

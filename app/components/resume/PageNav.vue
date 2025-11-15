@@ -1,5 +1,10 @@
 <script setup lang="ts">
+interface ToggleEvent extends Event {
+  newState: "open" | "closed";
+}
+
 const isOpen = ref(false);
+const menuRef = ref<HTMLElement | null>(null);
 
 const sections = [
   { id: "summary", label: "Summary" },
@@ -8,15 +13,15 @@ const sections = [
   { id: "profiles", label: "Profiles" },
 ];
 
-function scrollToSection(id: string) {
+function scrollToSection(id: string): void {
   const element = document.getElementById(id);
   if (element) {
     element.scrollIntoView({ behavior: "smooth", block: "start" });
-    isOpen.value = false;
+    menuRef.value?.hidePopover();
   }
 }
 
-function onToggle(event: Event) {
+function onToggle(event: Event): void {
   const toggleEvent = event as ToggleEvent;
   isOpen.value = toggleEvent.newState === "open";
 }
@@ -24,7 +29,7 @@ function onToggle(event: Event) {
 
 <template>
   <nav
-    class="border-b border-slate-700 bg-slate-900/95 backdrop-blur-sm sticky top-[42px] z-30"
+    class="border-b border-slate-700 bg-slate-900/95 backdrop-blur-sm sticky z-30"
     aria-label="Page navigation"
   >
     <!-- Mobile menu button -->
@@ -34,13 +39,14 @@ function onToggle(event: Event) {
       :aria-expanded="isOpen"
       aria-controls="page-nav-menu"
     >
-      <span>[Menu]</span>
+      <span>[Sections]</span>
       <span aria-hidden="true">{{ isOpen ? "▴" : "▾" }}</span>
     </button>
 
     <!-- Desktop nav (always visible) / Mobile nav (collapsible) -->
     <ul
       id="page-nav-menu"
+      ref="menuRef"
       class="flex-col md:flex md:flex-row md:gap-1 border-0 m-0 p-0 md:static md:bg-transparent md:border-0"
       popover="auto"
       @toggle="onToggle"
@@ -63,26 +69,26 @@ function onToggle(event: Event) {
 </template>
 
 <style scoped>
-/* Mobile: Position popover below the button */
+nav {
+  top: var(--header-height);
+}
+
 #page-nav-menu:popover-open {
-  /* Position below the sticky nav */
+  /* Position below both the global header and the nav button */
   position: fixed;
-  top: calc(42px + 44px); /* sticky top offset + button height */
+  top: calc(var(--header-height) + var(--page-nav-height));
   left: 0;
   right: 0;
   width: 100%;
-
-  background-color: --alpha(var(--color-slate-900) / 95%);
+  background-color: rgb(15 23 42 / 0.95);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--color-slate-700);
-
+  border-bottom: 1px solid rgb(51 65 85);
   z-index: 30;
 }
 
 /* Desktop: Override popover behavior - always visible, horizontal layout */
 @media (min-width: 768px) {
   #page-nav-menu:popover-open {
-    /* Reset popover positioning on desktop */
     position: static;
     top: auto;
     left: auto;

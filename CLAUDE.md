@@ -55,9 +55,12 @@ Custom Prose components in `app/components/` override default markdown rendering
 
 ### Application Structure
 
-- `app/app.vue`: Minimal root component that renders `<NuxtPage />`
+- `app/app.vue`: Root layout component that includes global elements (`TerminalHeader`) and renders `<NuxtPage />`
 - `app/pages/index.vue`: Main page that fetches and displays resume content with SEO meta tags and JSON-LD structured data
-- `app/components/`: Vue components (Prose components for MDC, UI components like `ResumePageNav`)
+- `app/components/`: Vue components including:
+  - `TerminalHeader.vue`: Global site navigation with power LED, site name (mattheweegan.com), and primary nav links
+  - `resume/PageNav.vue`: Section jumplinks for the resume page (two-tier navigation approach)
+  - Prose components for MDC (`ProseH1`, `ProseH2`, etc.)
 - `app/assets/css/main.css`: Custom CSS with three layers (base, components, print)
 - `content/`: Markdown content files
 
@@ -88,7 +91,10 @@ Custom Prose components in `app/components/` override default markdown rendering
 ## Development Notes
 
 - The site currently has a single page (`index.vue`) that displays resume content
+- Global site header lives in `TerminalHeader.vue` and is included in `app/app.vue` for all pages
+- Two-tier navigation: global header (primary site nav) + page-specific subnav (section jumplinks)
 - All custom styling maintains the terminal/CRT aesthetic - preserve this when adding new components
 - When creating new content pages, follow the SEO pattern from `index.vue` (useSeoMeta + JSON-LD)
+- To add new pages to site navigation, update the `navItems` array in `TerminalHeader.vue`
 - Prose components override default markdown rendering - modify these to change how markdown elements appear
 - Print styles are comprehensive - test PDF export when modifying layouts
