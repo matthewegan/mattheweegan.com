@@ -30,7 +30,7 @@ export default defineNuxtConfig({
           {
             binding: "DB",
             database_name: "mattheweegan-dot-com",
-            database_id: "",
+            database_id: process.env.NUXT_DB_ID,
           },
         ],
       },
