@@ -118,7 +118,7 @@ Web Application Developer • Aug 2008–Aug 2010
 
 ## Education
 
-- B.S., Information Sciences and Technology, The Pennsylvania State University, University Park, PA (2008)
+- B.S., Information Sciences and Technology, The Pennsylvania State University, University Park, PA
 
 ## Profiles
 
