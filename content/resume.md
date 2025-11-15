@@ -35,14 +35,13 @@ Senior Software Architect (Feb 2020–Present) • Senior Web Developer (Aug 201
 - Technical
 - JavaScript, TypeScript
 - Vue (Options API, Composition API), Nuxt
-- HTML, CSS, Sass
+- HTML, CSS, Sass, Tailwind CSS
 - Contentstack (headless CMS)
 - OIDC SSO; authentication and account portal
 - Vendor API integrations; custom cart/checkout
 - AWS CloudFront, Route 53, ECS, CloudFormation
 - Deployment pipelines; monitoring
 - Linux, macOS
-- Business & Practices
 - Analytics instrumentation and event taxonomy (Google Analytics, Google Tag Manager)
 - Cookie consent management
 - Stakeholder communication and coordination
@@ -80,7 +79,6 @@ Senior Web Application Developer • Aug 2010–Jul 2018
 - Git; Node (npm, yarn, webpack); Composer
 - Docker; Bash; Apache 2.2
 - Windows, Linux (incl. RHEL), macOS
-- Business & Practices
 - Requirements gathering, process mapping, documentation
 - Atlassian tools (e.g., Jira, Confluence)
 - Microsoft SharePoint, PowerPoint, Excel, Word
@@ -109,7 +107,6 @@ Web Application Developer • Aug 2008–Aug 2010
 - TCPDF (PDF generation)
 - Windows; batch scripting
 - Subversion (SVN)
-- Business & Practices
 - Client communication and requirements analysis
 - Onsite support and customer service
 - Documentation of installations and maintenance
