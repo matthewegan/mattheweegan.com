@@ -26,6 +26,7 @@ export default defineNuxtConfig({
       deployConfig: true,
       nodeCompat: true,
       wrangler: {
+        name: "mattheweegan-dot-com",
         d1_databases: [
           {
             binding: "DB",
