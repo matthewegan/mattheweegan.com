@@ -34,6 +34,12 @@ export default defineNuxtConfig({
             database_id: process.env.NUXT_DB_ID,
           },
         ],
+        routes: [
+          {
+            pattern: "mattheweegan.com",
+            custom_domain: true,
+          },
+        ],
       },
     },
   },
