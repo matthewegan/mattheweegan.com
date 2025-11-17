@@ -3,11 +3,11 @@ frontend:
   phases:
     preBuild:
       commands:
-        - "corepack enable"
-        - "npx --yes nypm i"
+        - "curl -fsSL https://bun.com/install | bash"
+        - "bun install"
     build:
       commands:
-        - "npm run build"
+        - "bun run build"
   artifacts:
     baseDirectory: .output
     files:
