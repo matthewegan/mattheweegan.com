@@ -5,10 +5,19 @@ description: Senior Software Architect and Web Developer with experience designi
 
 # Matthew Egan
 
-Senior Software Architect | Senior Web Developer
-Springfield, VA
-Email: egan.matthew@me.com
-LinkedIn: linkedin.com/in/matthew-egan-2a1b369 • GitHub: github.com/matthewegan
+::contact-header
+#title
+Software Architect | Web Developer
+
+#location
+Washington, DC Region
+
+#email
+Email: [egan.matthew@me.com](mailto:egan.matthew@me.com)
+
+#profiles
+LinkedIn: [linkedin.com/in/matthew-egan-2a1b369](https://linkedin.com/in/matthew-egan-2a1b369) • GitHub: [github.com/matthewegan](https://github.com/matthewegan)
+::
 
 ## Summary
 
