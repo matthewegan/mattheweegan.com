@@ -20,29 +20,6 @@ export default defineNuxtConfig({
       },
     },
   },
-  nitro: {
-    preset: "cloudflare_module",
-    cloudflare: {
-      deployConfig: true,
-      nodeCompat: true,
-      wrangler: {
-        name: "mattheweegan-dot-com",
-        d1_databases: [
-          {
-            binding: "DB",
-            database_name: "mattheweegan-dot-com",
-            database_id: process.env.NUXT_DB_ID,
-          },
-        ],
-        routes: [
-          {
-            pattern: "mattheweegan.com",
-            custom_domain: true,
-          },
-        ],
-      },
-    },
-  },
   vite: {
     plugins: [tailwindcss()],
   },
