@@ -10,6 +10,6 @@ frontend:
       commands:
         - "bun run build"
   artifacts:
-    baseDirectory: .output
+    baseDirectory: .amplify-hosting
     files:
       - "**/*"
