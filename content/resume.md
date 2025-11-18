@@ -43,7 +43,6 @@ Senior Software Architect (Feb 2020–Present) • Senior Web Developer (Aug 201
 - Supported the flagship facility launch by delivering core site capabilities ahead of opening.
 
 ::collapsible-section{title="Skills and Tools"}
-
 - JavaScript, TypeScript
 - Vue (Options API, Composition API), Nuxt
 - HTML, CSS, Sass, Tailwind CSS
@@ -56,7 +55,7 @@ Senior Software Architect (Feb 2020–Present) • Senior Web Developer (Aug 201
 - Analytics instrumentation and event taxonomy (Google Analytics, Google Tag Manager)
 - Cookie consent management
 - Stakeholder communication and coordination
-  ::
+::
 
 ---
 
@@ -82,7 +81,6 @@ Senior Web Application Developer • Aug 2010–Jul 2018
 - Prepared web servers and documentation to achieve Authority to Operate (ATO) status.
 
 ::collapsible-section{title="Skills and Tools"}
-
 - PHP 5.x; Laravel 5.2/5.6
 - JavaScript (ES6), Vue, jQuery
 - HTML/XHTML, CSS/Sass
@@ -97,7 +95,7 @@ Senior Web Application Developer • Aug 2010–Jul 2018
 - Security alignment and ATO processes
 - PPBE process familiarity
 - Stakeholder communication and reporting
-  ::
+::
 
 ---
 
@@ -114,7 +112,6 @@ Web Application Developer • Aug 2008–Aug 2010
 - Progressed from field technician to in-house web developer by contributing features and resolving production issues.
 
 ::collapsible-section{title="Skills and Tools"}
-
 - PHP; SQL; PostgreSQL
 - JavaScript, HTML, CSS
 - TCPDF (PDF generation)
@@ -123,7 +120,7 @@ Web Application Developer • Aug 2008–Aug 2010
 - Client communication and requirements analysis
 - Onsite support and customer service
 - Documentation of installations and maintenance
-  ::
+::
 
 ## Education
 
