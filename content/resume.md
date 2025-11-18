@@ -25,7 +25,11 @@ Software engineer and architect with experience designing, building, and maintai
 
 ## Professional Experience
 
-### The St. James — Springfield, VA
+### The St. James
+
+::subtext
+Springfield, VA
+::
 
 Senior Software Architect (Feb 2020–Present) • Senior Web Developer (Aug 2018–Feb 2020)
 
@@ -38,8 +42,7 @@ Senior Software Architect (Feb 2020–Present) • Senior Web Developer (Aug 201
 - Managed cookie consent across sites to align with policy and compliance requirements.
 - Supported the flagship facility launch by delivering core site capabilities ahead of opening.
 
-<details>
-<summary>Skills and Tools</summary>
+::collapsible-section{title="Skills and Tools"}
 
 - JavaScript, TypeScript
 - Vue (Options API, Composition API), Nuxt
@@ -53,12 +56,15 @@ Senior Software Architect (Feb 2020–Present) • Senior Web Developer (Aug 201
 - Analytics instrumentation and event taxonomy (Google Analytics, Google Tag Manager)
 - Cookie consent management
 - Stakeholder communication and coordination
-
-</details>
+  ::
 
 ---
 
-### Pioneering Evolution, LLC — Arlington, VA
+### Pioneering Evolution, LLC
+
+::subtext
+Arlington, VA
+::
 
 Senior Web Application Developer • Aug 2010–Jul 2018
 
@@ -75,8 +81,7 @@ Senior Web Application Developer • Aug 2010–Jul 2018
 - Standardized development environments and tooling by transitioning workstations to Red Hat Enterprise Linux.
 - Prepared web servers and documentation to achieve Authority to Operate (ATO) status.
 
-<details>
-<summary>Skills and Tools</summary>
+::collapsible-section{title="Skills and Tools"}
 
 - PHP 5.x; Laravel 5.2/5.6
 - JavaScript (ES6), Vue, jQuery
@@ -92,12 +97,15 @@ Senior Web Application Developer • Aug 2010–Jul 2018
 - Security alignment and ATO processes
 - PPBE process familiarity
 - Stakeholder communication and reporting
-
-</details>
+  ::
 
 ---
 
-### Computer Software, Inc. — Chalfont, PA
+### Computer Software, Inc.
+
+::subtext
+Chalfont, PA
+::
 
 Web Application Developer • Aug 2008–Aug 2010
 
@@ -105,8 +113,7 @@ Web Application Developer • Aug 2008–Aug 2010
 - Provided onsite and remote support for servers, workstations, printers, and business applications.
 - Progressed from field technician to in-house web developer by contributing features and resolving production issues.
 
-<details>
-<summary>Skills and Tools</summary>
+::collapsible-section{title="Skills and Tools"}
 
 - PHP; SQL; PostgreSQL
 - JavaScript, HTML, CSS
@@ -116,8 +123,7 @@ Web Application Developer • Aug 2008–Aug 2010
 - Client communication and requirements analysis
 - Onsite support and customer service
 - Documentation of installations and maintenance
-
-</details>
+  ::
 
 ## Education
 

@@ -141,30 +141,6 @@
     @apply font-mono text-xs;
   }
 
-  /* Details/Summary styles for collapsible sections */
-  details {
-    @apply my-4;
-  }
-
-  summary {
-    @apply cursor-pointer select-none py-2 font-mono text-sm font-semibold text-teal-400;
-    @apply hover:text-teal-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400;
-    list-style: none;
-  }
-
-  summary::-webkit-details-marker {
-    display: none;
-  }
-
-  summary::before {
-    content: "[▸] ";
-    @apply inline-block transition-transform;
-  }
-
-  details[open] summary::before {
-    content: "[▾] ";
-  }
-
   /* Thumb-friendly touch targets for mobile */
   @media (max-width: 768px) {
     summary,
@@ -230,18 +206,5 @@
   section,
   article {
     page-break-inside: avoid;
-  }
-
-  /* Expand collapsed sections for print */
-  details {
-    display: block !important;
-  }
-
-  summary {
-    display: none !important;
-  }
-
-  details > *:not(summary) {
-    display: block !important;
   }
 }

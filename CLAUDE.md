@@ -4,14 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a personal website built with Nuxt 4 and Nuxt Content, using Tailwind CSS 4 for styling. The site is content-driven, rendering markdown files from the `content/` directory as dynamic pages.
+This is a personal website built with Nuxt 4 and Nuxt Content, using Tailwind CSS 4 for styling. The site is content-driven, rendering markdown files from the `content/` directory as dynamic pages with a retro terminal/CRT aesthetic.
 
 ## Key Technologies
 
 - **Nuxt 4**: Vue-based framework for SSR/SSG
-- **Nuxt Content**: Content management with markdown files
-- **Tailwind CSS 4**: Utility-first CSS framework (configured via Vite plugin)
-- **Bun**: Package manager (bun.lock present)
+- **Nuxt Content 3.8**: File-based CMS with markdown support and SQLite backend
+- **Tailwind CSS 4**: Utility-first CSS framework (integrated via `@tailwindcss/vite`)
+- **Bun**: JavaScript runtime and package manager
 
 ## Common Commands
 
@@ -42,71 +42,90 @@ bunx nuxi typecheck
 
 ### Content System
 
-- **Content Collection**: Defined in `content.config.ts`, all markdown files in `content/` are treated as pages with optional `title` and `description` frontmatter
-- **Content Querying**: Pages directly query specific content paths using `queryCollection("content").path("/path").first()` (e.g., the index page queries `/resume`)
-- **Content Rendering**: Uses `<ContentRenderer :value="content" />` to render markdown as HTML, with MDC component overrides
-- **SQLite Backend**: Uses Nuxt's experimental native SQLite connector for content storage
+- **Content Collection**: Defined in `content.config.ts` with Zod schema validation (optional `title` and `description` fields)
+- **Content Querying**: Pages use `useAsyncData()` + `queryCollection("content").path("/path").first()` for type-safe content fetching
+- **Content Rendering**: `<ContentRenderer :value="content" />` renders markdown as HTML with custom MDC component overrides
+- **SQLite Backend**: Uses Nuxt Content's experimental native SQLite connector (`experimental.sqliteConnector: "native"` in `nuxt.config.ts`)
 
 ### MDC (Markdown Components)
 
-Custom Prose components in `app/components/` override default markdown rendering:
+Custom Prose components in `app/components/global/` automatically override default markdown rendering (auto-imported by Nuxt):
 
-- `ProseH1.vue`, `ProseH2.vue`, `ProseH3.vue`: Custom heading styles with terminal-inspired brackets `[■]` and anchor link support
+- `ProseH1.vue`, `ProseH2.vue`, `ProseH3.vue`: Terminal-style headings with `[■]` brackets and anchor link support
+- `ProseA.vue`: Link styling with teal hover states
 - `ProseP.vue`, `ProseLi.vue`, `ProseUl.vue`, `ProseHr.vue`: Custom prose element styling
-- Anchor links are configured for H1-H3 only (see `nuxt.config.ts` mdc settings)
-- All components maintain the terminal aesthetic with monospace font and teal/slate colors
+- Anchor links enabled for H1-H3 only via `mdc.headings.anchorLinks` config in `nuxt.config.ts`
+- All components maintain terminal aesthetic (monospace font, `slate-950` bg, `teal-400` accents)
 
 ### Application Structure
 
-- `app/app.vue`: Root layout component that includes global elements (`TerminalHeader`) and renders `<NuxtPage />`
-- `app/pages/index.vue`: Main page that fetches and displays resume content with SEO meta tags and JSON-LD structured data
-- `app/components/`: Vue components including:
-  - `TerminalHeader.vue`: Global site navigation with power LED, site name (mattheweegan.com), and primary nav links
-  - `resume/PageNav.vue`: Section jumplinks for the resume page (two-tier navigation approach)
-  - Prose components for MDC (`ProseH1`, `ProseH2`, etc.)
-- `app/assets/css/main.css`: Custom CSS with three layers (base, components, print)
-- `content/`: Markdown content files
+- `app/app.vue`: Root layout with CRT effects (`crt-scanlines`, `crt-glow`), skip-to-content link, `<TerminalHeader />`, and `<NuxtPage />`
+- `app/pages/index.vue`: Homepage that queries `/resume` content, sets SEO meta tags, and renders with `<ContentRenderer />`
+- `app/components/`: Auto-imported Vue components
+  - `TerminalHeader.vue`: Global site nav (power LED, site name, primary links)
+  - `PageMain.vue`: Content wrapper component
+  - `ContactHeader.vue`: Contact information section
+  - `resume/PageNav.vue`: Section jumplinks (page-specific navigation)
+  - `global/Prose*.vue`: MDC component overrides (auto-imported)
+- `app/assets/css/main.css`: Three CSS layers (base, components, print) with terminal theme definitions
+- `content/`: Markdown files (currently `/resume.md`)
+- `content.config.ts`: Content collection schema with Zod validation
 
 ### Styling & Theming
 
-- **Tailwind CSS 4**: Integrated via Vite plugin (`@tailwindcss/vite`)
-- **Terminal Aesthetic**: Retro CRT monitor theme with:
-  - Dark slate background (`slate-950`) with teal accents (`teal-400`, `teal-500`)
-  - Monospace font stack defined in `@layer base`
-  - Custom components: `.terminal-window`, `.terminal-header`, `.power-led`
-  - CRT effects: `.crt-scanlines` (animated scanlines), `.crt-glow` (soft glow effect)
-- **Accessibility**: Respects `prefers-reduced-motion`, includes `.sr-only` utilities, focus-visible styles
-- **Print Styles**: Comprehensive `@media print` rules for clean PDF export (removes decorations, expands collapsed sections)
+- **Tailwind CSS 4**: Integrated via Vite plugin (`@tailwindcss/vite` in `nuxt.config.ts`)
+- **Terminal Aesthetic**: Retro CRT monitor theme defined in `main.css`:
+  - Color scheme: `slate-950` background with `teal-400`/`teal-500` accents
+  - Monospace font stack: `ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Monaco...`
+  - Custom components: `.terminal-window`, `.terminal-header`, `.power-led`, `.ascii-divider`
+  - CRT effects: `.crt-scanlines` (animated repeating gradient), `.crt-glow` (inset box shadow)
+  - CSS variables: `--header-height` (61px mobile, 37px desktop), `--page-nav-height` (45px)
+- **Accessibility**:
+  - Respects `prefers-reduced-motion` (disables CRT animations)
+  - `.sr-only` utility for screen readers
+  - `:focus-visible` with teal outline
+  - Anchor `scroll-margin-top` accounts for sticky headers
+  - Thumb-friendly 44px min touch targets on mobile
+- **Print Styles**: Comprehensive `@media print` in `main.css`:
+  - Letter-size pages with 0.75in margins
+  - Removes nav, CRT effects, terminal chrome
+  - Expands `<details>` elements
+  - Prevents page breaks inside headings/paragraphs
+  - Shows link URLs with `::after` pseudo-elements
 
 ### SEO & Metadata
 
-- Uses `useSeoMeta()` for Open Graph and Twitter Card meta tags
-- Includes JSON-LD structured data (Person schema) via `useHead()`
-- Pattern is implemented in `app/pages/index.vue` and can be extended to other pages
+Implementation pattern in `app/pages/index.vue`:
 
-### Code Quality
+- `useSeoMeta()`: Sets Open Graph (`og:title`, `og:description`, `og:type: "profile"`) and Twitter Card meta tags
+- `useHead()`: Injects JSON-LD structured data (Schema.org Person type) with name, jobTitle, email, address, and social links
+- Content frontmatter (`title`, `description`) populates meta tags automatically
 
-- **Husky**: Git hooks configured (`.husky/pre-commit`)
-- **lint-staged**: Runs `eslint --fix` and `prettier --write` on staged files before commit
-- **ESLint**: Minimal config that extends from `.nuxt/eslint.config.mjs` (auto-generated by `@nuxt/eslint`)
-- **Prettier**: Default configuration
+### Code Quality & Git Hooks
 
-## Deployment
+- **Husky**: Pre-commit hook configured in `.husky/pre-commit`
+- **lint-staged**: Runs `eslint --fix` and `prettier --write --ignore-unknown` on staged files
+- **ESLint**: Extends `@nuxt/eslint` config (auto-generated in `.nuxt/eslint.config.mjs`)
+- **Prettier**: Default configuration (version 3.6.2)
 
-- **Platform**: Cloudflare Pages (via Nitro preset `cloudflare_module`)
-- **D1 Database**: Configured with binding `DB` for content storage (requires `NUXT_DB_ID` environment variable)
-- **Custom Domain**: Configured for `mattheweegan.com` in Wrangler routes
-- **Worker Name**: `mattheweegan-dot-com`
-- **Wrangler**: Used for deployment (run `bunx wrangler` commands for deployment tasks)
+### Deployment
+
+- **AWS Amplify**: Configured via `amplify.yml`
+  - Installs Bun from scratch during preBuild phase
+  - Runs `bun run build` to generate static site
+  - Outputs to `.amplify-hosting` directory (configured as `baseDirectory`)
 
 ## Development Notes
 
-- The site currently has a single page (`index.vue`) that displays resume content
-- Global site header lives in `TerminalHeader.vue` and is included in `app/app.vue` for all pages
-- Two-tier navigation: global header (primary site nav) + page-specific subnav (section jumplinks)
-- All custom styling maintains the terminal/CRT aesthetic - preserve this when adding new components
-- When creating new content pages, follow the SEO pattern from `index.vue` (useSeoMeta + JSON-LD)
-- To add new pages to site navigation, update the `navItems` array in `TerminalHeader.vue`
-- Prose components override default markdown rendering - modify these to change how markdown elements appear
-- Print styles are comprehensive - test PDF export when modifying layouts
-- Docs for `@nuxt/content` can be found at `../_clones/content/docs/content/docs`
+- **Current pages**: Single-page site (`index.vue` displays `/resume` content)
+- **Navigation architecture**: Two-tier system
+  - Global header (`TerminalHeader.vue` in `app/app.vue`) for site-wide nav
+  - Page-specific subnav (`resume/PageNav.vue`) for section jumplinks
+- **Styling conventions**: All components must maintain terminal/CRT aesthetic (monospace, `slate-950`/`teal-400` colors)
+- **Adding pages**:
+  1. Create markdown in `content/`
+  2. Create page component in `app/pages/` that queries the content
+  3. Follow SEO pattern from `index.vue` (`useSeoMeta` + JSON-LD structured data)
+  4. Update `navItems` in `TerminalHeader.vue`
+- **Customizing markdown**: Modify Prose components in `app/components/global/` to change how markdown elements render
+- **Print testing**: Always test PDF export when modifying layouts (print styles hide nav/decorations and expand `<details>`)
