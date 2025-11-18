@@ -41,15 +41,14 @@ Senior Software Architect (Feb 2020–Present) • Senior Web Developer (Aug 201
 <details>
 <summary>Skills and Tools</summary>
 
-- Technical
 - JavaScript, TypeScript
 - Vue (Options API, Composition API), Nuxt
 - HTML, CSS, Sass, Tailwind CSS
 - Contentstack (headless CMS)
 - OIDC SSO; authentication and account portal
 - Vendor API integrations; custom cart/checkout
-- AWS CloudFront, Route 53, ECS, CloudFormation
-- Deployment pipelines; monitoring
+- AWS (CloudFront, Route 53, ECS, CloudFormation)
+- Git; CI/CD pipelines; monitoring
 - Linux, macOS
 - Analytics instrumentation and event taxonomy (Google Analytics, Google Tag Manager)
 - Cookie consent management
@@ -79,13 +78,12 @@ Senior Web Application Developer • Aug 2010–Jul 2018
 <details>
 <summary>Skills and Tools</summary>
 
-- Technical
 - PHP 5.x; Laravel 5.2/5.6
-- JavaScript (ES6), Vue.js, jQuery
+- JavaScript (ES6), Vue, jQuery
 - HTML/XHTML, CSS/Sass
 - MySQL, Oracle; relational design; query optimization
 - ORM (Doctrine, Eloquent/ActiveRecord)
-- Git; Node (npm, yarn, webpack); Composer
+- Git; Frontend build tools (npm, yarn, webpack); Composer
 - Docker; Bash; Apache 2.2
 - Windows, Linux (incl. RHEL), macOS
 - Requirements gathering, process mapping, documentation
@@ -110,9 +108,8 @@ Web Application Developer • Aug 2008–Aug 2010
 <details>
 <summary>Skills and Tools</summary>
 
-- Technical
 - PHP; SQL; PostgreSQL
-- JavaScript; Ajax; HTML; CSS
+- JavaScript, HTML, CSS
 - TCPDF (PDF generation)
 - Windows; batch scripting
 - Subversion (SVN)
@@ -128,5 +125,5 @@ Web Application Developer • Aug 2008–Aug 2010
 
 ## Profiles
 
-- LinkedIn: linkedin.com/in/matthew-egan-2a1b369
-- GitHub: github.com/matthewegan
+- LinkedIn: [linkedin.com/in/matthew-egan-2a1b369](https://linkedin.com/in/matthew-egan-2a1b369)
+- GitHub: [github.com/matthewegan](https://github.com/matthewegan)
