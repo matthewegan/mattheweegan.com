@@ -21,7 +21,7 @@ LinkedIn: [linkedin.com/in/matthew-egan-2a1b369](https://linkedin.com/in/matthew
 
 ## Summary
 
-Software engineer and architect with experience designing, building, and maintaining web applications and services. Background spans front-end development, API design, databases, cloud infrastructure, and analytics instrumentation. Comfortable translating requirements into reliable systems and collaborating with stakeholders to improve products and processes.
+Software architect and developer with 16+ years of experience building web applications. Background spans front-end development, API design, databases, cloud infrastructure, and analytics instrumentation.
 
 ## Professional Experience
 
@@ -34,8 +34,8 @@ Springfield, VA
 Senior Software Architect (Feb 2020–Present) • Senior Web Developer (Aug 2018–Feb 2020)
 
 - Lead developer and maintainer for thestjames.com, built on a headless CMS with a custom cart and checkout for online reservations and payments.
-- Delivered front-end features for in-house administration and member self-service portals; collaborated on authentication and session flows.
-- Implemented SSO using OIDC to unify authentication across the web and native apps.
+- Delivered front-end features for a member account portal and an internal admin tool for managing workout content for a fitness app.
+- Contributed to OIDC-based SSO architecture; implemented web authentication flows.
 - Integrated vendor APIs to synchronize transactions with systems of record; added monitoring and error handling to improve reliability.
 - Managed analytics instrumentation and event taxonomy; supported stakeholder reporting needs.
 - Owned DNS and CDN operations across a family of domains; maintained deployment pipelines and cloud infrastructure.
@@ -47,9 +47,9 @@ Senior Software Architect (Feb 2020–Present) • Senior Web Developer (Aug 201
 - Vue (Options API, Composition API), Nuxt
 - HTML, CSS, Sass, Tailwind CSS
 - Contentstack (headless CMS)
-- OIDC SSO; authentication and account portal
+- OIDC SSO architecture; web authentication flows
 - Vendor API integrations; custom cart/checkout
-- AWS (CloudFront, Route 53, ECS, CloudFormation)
+- AWS (CloudFront, Route 53, ECS, CloudFormation); Cloudflare (Pages, Workers)
 - Git; CI/CD pipelines; monitoring
 - Linux, macOS
 - Analytics instrumentation and event taxonomy (Google Analytics, Google Tag Manager)
