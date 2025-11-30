@@ -57,6 +57,19 @@ useHead({
     <!-- Main content -->
     <PageMain>
       <article class="terminal-window p-6 sm:p-8">
+        <!-- Download PDF action -->
+        <div class="flex justify-end mb-4">
+          <a
+            href="/matthew_egan_resume.pdf"
+            download="matthew_egan_resume.pdf"
+            class="inline-block font-mono text-sm transition-all duration-200 group"
+          >
+            <span class="text-slate-500 group-hover:text-teal-500">[</span>
+            <span class="text-teal-400">Download PDF</span>
+            <span class="text-slate-500 group-hover:text-teal-500">]</span>
+          </a>
+        </div>
+
         <ContentRenderer
           v-if="resume"
           :value="resume"
@@ -66,3 +79,20 @@ useHead({
     </PageMain>
   </div>
 </template>
+
+<style scoped>
+/* Download link glow effect */
+.group:hover span:nth-child(2),
+.group:focus-visible span:nth-child(2) {
+  text-shadow:
+    0 0 10px rgba(20, 184, 166, 0.6),
+    0 0 20px rgba(20, 184, 166, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .group:hover span:nth-child(2),
+  .group:focus-visible span:nth-child(2) {
+    text-shadow: none;
+  }
+}
+</style>
