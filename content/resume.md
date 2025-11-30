@@ -33,7 +33,7 @@ Springfield, VA
 
 Senior Software Architect (Feb 2020–Present) • Senior Web Developer (Aug 2018–Feb 2020)
 
-- Lead developer and maintainer for thestjames.com, built on a headless CMS with a custom cart and checkout for scheduling activities, and a separate membership purchase flow.
+- Lead developer and maintainer for [thestjames.com](https://www.thestjames.com), built on a headless CMS with a custom cart and checkout for scheduling activities, and a separate membership purchase flow.
 - Delivered a member account portal on the site and built an internal admin tool for managing workout content for a fitness app.
 - Contributed to OIDC-based SSO architecture; implemented web authentication flows.
 - Coordinated vendor API integrations to synchronize transactions with systems of record; added monitoring and error handling to improve reliability.
