@@ -33,10 +33,10 @@ Springfield, VA
 
 Senior Software Architect (Feb 2020–Present) • Senior Web Developer (Aug 2018–Feb 2020)
 
-- Lead developer and maintainer for thestjames.com, built on a headless CMS with a custom cart and checkout for online reservations and payments.
-- Delivered front-end features for a member account portal and an internal admin tool for managing workout content for a fitness app.
+- Lead developer and maintainer for thestjames.com, built on a headless CMS with a custom cart and checkout for scheduling activities, and a separate membership purchase flow.
+- Delivered a member account portal on the site and built an internal admin tool for managing workout content for a fitness app.
 - Contributed to OIDC-based SSO architecture; implemented web authentication flows.
-- Integrated vendor APIs to synchronize transactions with systems of record; added monitoring and error handling to improve reliability.
+- Coordinated vendor API integrations to synchronize transactions with systems of record; added monitoring and error handling to improve reliability.
 - Managed analytics instrumentation and event taxonomy; supported stakeholder reporting needs.
 - Owned DNS and CDN operations across a family of domains; maintained deployment pipelines and cloud infrastructure.
 - Managed cookie consent across sites to align with policy and compliance requirements.
@@ -70,7 +70,7 @@ Senior Web Application Developer • Aug 2010–Jul 2018
 - Designed and delivered custom web applications supporting U.S. Navy programs, including requirements capture, workflow, budgeting, execution tracking, and reporting.
 - Gathered and documented requirements, mapped processes, and translated them into database schemas and system designs.
 - Built SPAs and RESTful backends; maintained version control and modern JavaScript tooling.
-- Developed data integrations and dashboards to surface key information from enterprise systems; supported ad hoc reporting for program offices.
+- Built applications that consumed exports from enterprise systems, with data mapping interfaces and dashboards; supported ad hoc reporting for program offices.
 - Facilitated stakeholder sessions and supported senior leaders with concise reporting on progress and risk.
 - Contributed to project planning and coordination across multidisciplinary teams; provided client-facing support and documentation.
 
@@ -78,7 +78,7 @@ Senior Web Application Developer • Aug 2010–Jul 2018
 
 - Modernized development practices for intranet and internal business applications (timekeeping, HR, inventory, order management).
 - Standardized development environments and tooling by transitioning workstations to Red Hat Enterprise Linux.
-- Prepared web servers and documentation to achieve Authority to Operate (ATO) status.
+- Prepared application web servers and documentation to meet security requirements for deployment.
 
 ::collapsible-section{title="Skills and Tools"}
 - PHP 5.x; Laravel 5.2/5.6
@@ -92,7 +92,7 @@ Senior Web Application Developer • Aug 2010–Jul 2018
 - Requirements gathering, process mapping, documentation
 - Atlassian tools (e.g., Jira, Confluence)
 - Microsoft SharePoint, PowerPoint, Excel, Word
-- Security alignment and ATO processes
+- Security compliance and server hardening
 - PPBE process familiarity
 - Stakeholder communication and reporting
 ::
