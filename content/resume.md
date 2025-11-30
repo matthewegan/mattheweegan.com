@@ -122,6 +122,28 @@ Web Application Developer • Aug 2008–Aug 2010
 - Documentation of installations and maintenance
 ::
 
+## Other Professional Experience
+
+### Foundation for Social Connection
+
+::subtext
+Remote (via Oh Buoy LLC)
+::
+
+Search Implementation • Jul 2024
+
+- Implemented site-wide search for [action4connection.org](https://action4connection.org), a 501(c)(3) nonprofit advocacy site built with Nuxt and Sanity CMS.
+- Designed and populated Algolia search indices by scripting content extraction from Sanity, mapping complex content structures including nested accordions and dialogs.
+- Delivered search UX that surfaces content within collapsed UI elements, enabling users to navigate directly to specific accordion sections and dialog triggers.
+
+::collapsible-section{title="Skills and Tools"}
+- Nuxt, Vue
+- Sanity (headless CMS); Sanity Client (JS/TS)
+- Algolia (search indexing and UI)
+- Content taxonomy design
+- Netlify (deployment)
+::
+
 ## Education
 
 - B.S., Information Sciences and Technology, The Pennsylvania State University, University Park, PA
