@@ -16,9 +16,11 @@ useSeoMeta({
   ogTitle: resume.value.title,
   ogDescription: resume.value.description,
   ogType: "profile",
-  twitterCard: "summary",
+  ogImage: "/og-image.png",
+  twitterCard: "summary_large_image",
   twitterTitle: resume.value.title,
   twitterDescription: resume.value.description,
+  twitterImage: "/og-image.png",
 });
 
 useHead({
