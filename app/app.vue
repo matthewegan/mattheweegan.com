@@ -1,5 +1,7 @@
 <template>
-  <div class="min-h-screen bg-slate-950 text-slate-50 crt-scanlines crt-glow">
+  <div
+    class="min-h-screen bg-slate-950 text-slate-50 crt-scanlines crt-glow print:bg-white print:text-slate-900"
+  >
     <!-- Skip to content link for accessibility -->
     <a
       href="#main-content"

@@ -1,12 +1,12 @@
 <template>
   <h1
     :id="props.id"
-    class="prose-h1-glow mb-3 border-b-2 border-teal-500 pb-3 text-3xl font-bold tracking-tight text-teal-400 sm:text-4xl"
+    class="prose-h1-glow mb-3 border-b-2 border-teal-500 pb-3 text-3xl font-bold tracking-tight text-teal-400 sm:text-4xl print:border-b-0 print:pb-0 print:text-slate-900"
   >
-    <span class="prose-bracket-glow text-teal-600">[■]</span>
-    <a v-if="generate" :href="`#${props.id}`">
+    <span class="prose-bracket-glow text-teal-600 print:hidden">[■]</span>
+    <span v-if="generate">
       <slot />
-    </a>
+    </span>
     <slot v-else />
   </h1>
 </template>

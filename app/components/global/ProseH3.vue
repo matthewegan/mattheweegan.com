@@ -1,12 +1,12 @@
 <template>
   <h3
     :id="props.id"
-    class="prose-h3-glow mb-4 mt-8 text-xl font-semibold text-purple-400 sm:text-2xl"
+    class="prose-h3-glow mb-4 mt-8 text-xl font-semibold text-purple-400 sm:text-2xl print:text-slate-900"
   >
-    <span class="text-slate-500">::</span>
-    <a v-if="generate" :href="`#${props.id}`">
+    <span class="text-slate-500 print:hidden">::</span>
+    <span v-if="generate">
       <slot />
-    </a>
+    </span>
     <slot v-else />
   </h3>
 </template>
