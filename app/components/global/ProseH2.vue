@@ -38,7 +38,7 @@ const generate = computed(
 <template>
   <h2
     :id="headingId"
-    class="mb-4 mt-8 border-l-4 border-amber-500 pl-3 text-2xl font-bold text-amber-400 sm:text-3xl"
+    class="prose-h2-glow mb-5 mt-10 border-l-4 border-amber-500 pl-3 text-2xl font-bold text-amber-400 sm:text-3xl"
   >
     <a v-if="generate" :href="`#${headingId}`">
       <slot />

@@ -1,9 +1,9 @@
 <template>
   <h3
     :id="props.id"
-    class="mb-3 mt-6 text-xl font-semibold text-purple-400 sm:text-2xl"
+    class="prose-h3-glow mb-4 mt-8 text-xl font-semibold text-purple-400 sm:text-2xl"
   >
-    <span class="text-slate-600">::</span>
+    <span class="text-slate-500">::</span>
     <a v-if="generate" :href="`#${props.id}`">
       <slot />
     </a>

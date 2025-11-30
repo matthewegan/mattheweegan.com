@@ -32,7 +32,9 @@ function closeMenu(): void {
       <!-- Site identifier -->
       <div class="flex items-center gap-2">
         <span class="power-led" aria-label="Power indicator" />
-        <span class="text-teal-400 font-semibold">mattheweegan.com</span>
+        <span class="site-name text-teal-400 font-semibold"
+          >mattheweegan.com</span
+        >
       </div>
 
       <!-- Primary navigation -->
@@ -80,6 +82,38 @@ function closeMenu(): void {
 </template>
 
 <style scoped>
+/* Site name glow effect */
+.site-name {
+  text-shadow:
+    0 0 10px rgba(20, 184, 166, 0.4),
+    0 0 20px rgba(20, 184, 166, 0.2);
+}
+
+/* Nav link hover glow */
+nav a:hover,
+nav a:focus-visible {
+  text-shadow:
+    0 0 8px rgba(20, 184, 166, 0.6),
+    0 0 16px rgba(20, 184, 166, 0.3);
+}
+
+/* Active nav link glow */
+nav a[aria-current="page"] {
+  text-shadow:
+    0 0 10px rgba(20, 184, 166, 0.5),
+    0 0 20px rgba(20, 184, 166, 0.25);
+}
+
+/* Reduce visual complexity for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .site-name,
+  nav a:hover,
+  nav a:focus-visible,
+  nav a[aria-current="page"] {
+    text-shadow: none;
+  }
+}
+
 #primary-nav-menu:popover-open {
   position: fixed;
   top: var(--header-height);

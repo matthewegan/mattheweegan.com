@@ -9,13 +9,24 @@ export default defineNuxtConfig({
       ],
     },
   },
+  fonts: {
+    provider: "google",
+    families: [
+      {
+        name: "JetBrains Mono",
+        provider: "google",
+        weights: [400, 500, 600, 700],
+        styles: ["normal", "italic"],
+      },
+    ],
+  },
   compatibilityDate: "2025-07-15",
   content: {
     experimental: { sqliteConnector: "native" },
   },
   css: ["./app/assets/css/main.css"],
   devtools: { enabled: true },
-  modules: ["@nuxt/content", "@nuxt/eslint"],
+  modules: ["@nuxt/content", "@nuxt/eslint", "@nuxt/fonts"],
   mdc: {
     headings: {
       anchorLinks: {

@@ -1,9 +1,9 @@
 <template>
   <h1
     :id="props.id"
-    class="mb-2 border-b-2 border-teal-500 pb-3 text-3xl font-bold tracking-tight text-teal-400 sm:text-4xl"
+    class="prose-h1-glow mb-3 border-b-2 border-teal-500 pb-3 text-3xl font-bold tracking-tight text-teal-400 sm:text-4xl"
   >
-    <span class="text-slate-500">[■]</span>
+    <span class="prose-bracket-glow text-teal-600">[■]</span>
     <a v-if="generate" :href="`#${props.id}`">
       <slot />
     </a>
