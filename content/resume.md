@@ -38,6 +38,7 @@ Senior Software Architect (Feb 2020–Present) • Senior Web Developer (Aug 201
 - Contributed to OIDC-based SSO architecture; implemented web authentication flows.
 - Coordinated vendor API integrations to synchronize transactions with systems of record; added monitoring and error handling to improve reliability.
 - Managed analytics instrumentation and event taxonomy; supported stakeholder reporting needs.
+- Built a Lambda@Edge redirect service (Node.js) on CloudFront to consolidate multiple sport-specific domains into a single site; provisioned CloudFront distributions, ACM certificates, and Route 53 DNS for each domain.
 - Owned DNS and CDN operations across a family of domains; maintained deployment pipelines and cloud infrastructure.
 - Managed cookie consent across sites to align with policy and compliance requirements.
 - Supported the flagship facility launch by delivering core site capabilities ahead of opening.
@@ -49,7 +50,7 @@ Senior Software Architect (Feb 2020–Present) • Senior Web Developer (Aug 201
 - Contentstack (headless CMS)
 - OIDC SSO architecture; web authentication flows
 - Vendor API integrations; custom cart/checkout
-- AWS (CloudFront, Route 53, ECS, CloudFormation); Cloudflare (Pages, Workers)
+- AWS (Lambda@Edge, CloudFront, ACM, Route 53, ECS, CloudFormation); Cloudflare (Pages, Workers)
 - Git; CI/CD pipelines; monitoring
 - Linux, macOS
 - Analytics instrumentation and event taxonomy (Google Analytics, Google Tag Manager)
