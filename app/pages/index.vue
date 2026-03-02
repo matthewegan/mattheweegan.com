@@ -58,7 +58,7 @@ useHead({
     <PageMain>
       <article class="terminal-window p-6 sm:p-8">
         <!-- Download PDF action -->
-        <div class="flex justify-end mb-4">
+        <div class="flex justify-end mb-4 print:hidden">
           <a
             href="/matthew_egan_resume.pdf"
             download="matthew_egan_resume.pdf"
