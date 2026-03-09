@@ -1,6 +1,6 @@
 ---
 title: Matthew Egan - Resume
-description: Senior Software Architect and Web Developer with experience designing, building, and maintaining web applications and services
+description: Senior Software Architect and full-stack web developer with experience designing, building, and maintaining web applications, cloud infrastructure, and API integrations
 ---
 
 # Matthew Egan
@@ -21,7 +21,17 @@ LinkedIn: [linkedin.com/in/matthew-egan-2a1b369](https://linkedin.com/in/matthew
 
 ## Summary
 
-Software architect and developer with 16+ years of experience building web applications. Background spans front-end development, API design, databases, cloud infrastructure, and analytics instrumentation.
+Full-stack software architect and developer with 16+ years of experience building web applications. Background spans front-end development, API design and integration, databases, cloud infrastructure, CI/CD, and analytics instrumentation.
+
+## Technical Skills
+
+- **Languages:** JavaScript, TypeScript, PHP, SQL, HTML, CSS
+- **Frameworks:** Vue (Options API, Composition API), Nuxt, Laravel, jQuery
+- **Styling:** CSS, Sass, Tailwind CSS
+- **Databases:** MySQL, Oracle, PostgreSQL
+- **Cloud & Infrastructure:** AWS (Lambda@Edge, CloudFront, ACM, Route 53, ECS, CloudFormation), Cloudflare (Pages, Workers), Docker
+- **Tools & Platforms:** Git, CI/CD pipelines, Contentstack, Sanity, Algolia, Google Analytics, Google Tag Manager
+- **Practices:** RESTful API design, SSO/OIDC, agile development, requirements gathering, analytics instrumentation
 
 ## Professional Experience
 
@@ -31,7 +41,7 @@ Software architect and developer with 16+ years of experience building web appli
 Springfield, VA
 ::
 
-Senior Software Architect (Feb 2020–Present) • Senior Web Developer (Aug 2018–Feb 2020)
+Senior Software Architect • Feb 2020–Present
 
 - Lead developer and maintainer for [thestjames.com](https://www.thestjames.com), built on a headless CMS with a custom cart and checkout for scheduling activities, and a separate membership purchase flow.
 - Delivered a member account portal on the site and built an internal admin tool for managing workout content for a fitness app.
@@ -56,6 +66,28 @@ Senior Software Architect (Feb 2020–Present) • Senior Web Developer (Aug 201
 - Analytics instrumentation and event taxonomy (Google Analytics, Google Tag Manager)
 - Cookie consent management
 - Stakeholder communication and coordination
+::
+
+---
+
+### The St. James
+
+::subtext
+Springfield, VA
+::
+
+Senior Web Developer • Aug 2018–Feb 2020
+
+- Built front-end features and interactive UI components for the company website using Vue and Nuxt.
+- Implemented custom cart and checkout flows for activity scheduling and membership purchases.
+- Supported the flagship facility launch by delivering core site capabilities ahead of opening.
+
+::collapsible-section{title="Skills and Tools"}
+- JavaScript, TypeScript
+- Vue, Nuxt
+- HTML, CSS, Sass
+- Contentstack (headless CMS)
+- Git; CI/CD pipelines
 ::
 
 ---
@@ -123,7 +155,7 @@ Web Application Developer • Aug 2008–Aug 2010
 - Documentation of installations and maintenance
 ::
 
-## Other Professional Experience
+---
 
 ### Foundation for Social Connection
 
@@ -131,7 +163,7 @@ Web Application Developer • Aug 2008–Aug 2010
 Remote (via Oh Buoy LLC)
 ::
 
-Search Implementation • Jul 2024
+Search Implementation (Contract) • Jul 2024
 
 - Implemented site-wide search for [action4connection.org](https://action4connection.org), a 501(c)(3) nonprofit advocacy site built with Nuxt and Sanity CMS.
 - Designed and populated Algolia search indices by scripting content extraction from Sanity, mapping complex content structures including nested accordions and dialogs.
