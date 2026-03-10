@@ -21,7 +21,7 @@ LinkedIn: [linkedin.com/in/matthew-egan-2a1b369](https://linkedin.com/in/matthew
 
 ## Summary
 
-Full-stack software architect and developer with 16+ years of experience building web applications. Background spans front-end development, API design and integration, databases, cloud infrastructure, CI/CD, and analytics instrumentation.
+Full-stack developer with 16+ years of experience building and maintaining commercial web applications. Currently the lead developer on a headless CMS site with custom ecommerce, payment integrations, and SSO. Background covers frontend architecture (Vue, Nuxt, TypeScript), API integrations, cloud infrastructure (AWS, Cloudflare), and CI/CD. Track record of identifying problems and shipping solutions independently.
 
 ## Technical Skills
 
@@ -43,29 +43,25 @@ Springfield, VA
 
 Senior Software Architect • Feb 2020–Present
 
-- Lead developer and maintainer for [thestjames.com](https://www.thestjames.com), built on a headless CMS with a custom cart and checkout for scheduling activities, and a separate membership purchase flow.
-- Delivered a member account portal on the site and built an internal admin tool for managing workout content for a fitness app.
-- Contributed to OIDC-based SSO architecture; implemented web authentication flows.
-- Coordinated vendor API integrations to synchronize transactions with systems of record; added monitoring and error handling to improve reliability.
-- Managed analytics instrumentation and event taxonomy; supported stakeholder reporting needs.
-- Built a Lambda@Edge redirect service (Node.js) on CloudFront to consolidate multiple sport-specific domains into a single site; provisioned CloudFront distributions, ACM certificates, and Route 53 DNS for each domain.
-- Owned DNS and CDN operations across a family of domains; maintained deployment pipelines and cloud infrastructure.
-- Managed cookie consent across sites to align with policy and compliance requirements.
-- Supported the flagship facility launch by delivering core site capabilities ahead of opening.
+- Lead developer for [thestjames.com](https://www.thestjames.com), a headless CMS site (Contentstack + Nuxt) with custom cart, checkout, and membership purchase flows serving a multi-facility sports and wellness company.
+- Designed and built the LeagueApps Programs Widget from scratch, a self-initiated project (112 commits, 10,800+ net lines) that replaced a problematic vendor widget. Solved three issues at once: eliminated a marketing bottleneck by making widget configuration self-service, fixed a privacy compliance violation with consent-based tracking, and restored broken back-button behavior on the SPA. Deployed to production on Cloudflare Workers.
+- Led integration of the Exerp Odin Pay payment gateway, replacing the legacy payment system and enabling online membership sales. Built the complete checkout flow including saved cards and zero-dollar transactions.
+- Planned and executed a full codebase modernization toward Nuxt 3: converted 96 class-based components to Composition API, replaced 18 base classes with composables, migrated 9 Vuex store modules to Pinia (organized by dependency tier to keep each PR independently mergeable), removed Vue.filter() usage, began replacing Element UI with custom components, and installed Nuxt Bridge. Also replaced node-sass with Dart Sass (unblocking Node.js upgrades from 14 to 22) and led Tailwind CSS adoption across 78+ styling changes.
+- Implemented OIDC-based SSO web authentication flows for the member account portal and internal admin tools.
+- Built a Lambda@Edge redirect service on CloudFront to consolidate multiple sport-specific domains into a single site, provisioning distributions, ACM certificates, and Route 53 DNS for each domain.
+- Owned DNS, CDN, and deployment infrastructure across AWS (ECS, CloudFront, Route 53) and Cloudflare (Pages, Workers). Maintained CI/CD pipelines and monitoring.
+- Built analytics instrumentation and defined the event taxonomy used for all stakeholder reporting.
 
 ::collapsible-section{title="Skills and Tools"}
-- JavaScript, TypeScript
-- Vue (Options API, Composition API), Nuxt
+- JavaScript, TypeScript, Vue 3 (Composition API), Nuxt
 - HTML, CSS, Sass, Tailwind CSS
+- Web Components, Shadow DOM, Custom Elements
 - Contentstack (headless CMS)
-- OIDC SSO architecture; web authentication flows
-- Vendor API integrations; custom cart/checkout
+- Pinia, Vuex (migration experience)
+- OIDC SSO; vendor API integrations; custom cart/checkout
 - AWS (Lambda@Edge, CloudFront, ACM, Route 53, ECS, CloudFormation); Cloudflare (Pages, Workers)
-- Git; CI/CD pipelines; monitoring
-- Linux, macOS
-- Analytics instrumentation and event taxonomy (Google Analytics, Google Tag Manager)
-- Cookie consent management
-- Stakeholder communication and coordination
+- Vite, Bun, Git, CI/CD pipelines, Docker
+- Google Analytics, Google Tag Manager
 ::
 
 ---
@@ -88,6 +84,28 @@ Senior Web Developer • Aug 2018–Feb 2020
 - HTML, CSS, Sass
 - Contentstack (headless CMS)
 - Git; CI/CD pipelines
+::
+
+---
+
+### Foundation for Social Connection
+
+::subtext
+Remote (via Oh Buoy LLC)
+::
+
+Search Implementation (Contract) • Jul 2024
+
+- Implemented site-wide search for [action4connection.org](https://action4connection.org), a 501(c)(3) nonprofit advocacy site built with Nuxt and Sanity CMS.
+- Designed and populated Algolia search indices by scripting content extraction from Sanity, mapping complex content structures including nested accordions and dialogs.
+- Delivered search UX that surfaces content within collapsed UI elements, enabling users to navigate directly to specific accordion sections and dialog triggers.
+
+::collapsible-section{title="Skills and Tools"}
+- Nuxt, Vue, TypeScript
+- Sanity (headless CMS); Sanity Client (JS/TS)
+- Algolia (search indexing and UI)
+- Content taxonomy design
+- Netlify (deployment)
 ::
 
 ---
@@ -140,42 +158,7 @@ Chalfont, PA
 
 Web Application Developer • Aug 2008–Aug 2010
 
-- Developed custom reports and web features for municipal clients; delivered PDF reporting and front-end enhancements.
-- Provided onsite and remote support for servers, workstations, printers, and business applications.
-- Progressed from field technician to in-house web developer by contributing features and resolving production issues.
-
-::collapsible-section{title="Skills and Tools"}
-- PHP; SQL; PostgreSQL
-- JavaScript, HTML, CSS
-- TCPDF (PDF generation)
-- Windows; batch scripting
-- Subversion (SVN)
-- Client communication and requirements analysis
-- Onsite support and customer service
-- Documentation of installations and maintenance
-::
-
----
-
-### Foundation for Social Connection
-
-::subtext
-Remote (via Oh Buoy LLC)
-::
-
-Search Implementation (Contract) • Jul 2024
-
-- Implemented site-wide search for [action4connection.org](https://action4connection.org), a 501(c)(3) nonprofit advocacy site built with Nuxt and Sanity CMS.
-- Designed and populated Algolia search indices by scripting content extraction from Sanity, mapping complex content structures including nested accordions and dialogs.
-- Delivered search UX that surfaces content within collapsed UI elements, enabling users to navigate directly to specific accordion sections and dialog triggers.
-
-::collapsible-section{title="Skills and Tools"}
-- Nuxt, Vue
-- Sanity (headless CMS); Sanity Client (JS/TS)
-- Algolia (search indexing and UI)
-- Content taxonomy design
-- Netlify (deployment)
-::
+- Built custom reports and web features for municipal clients using PHP, PostgreSQL, and JavaScript. Progressed from field technician to in-house developer.
 
 ## Education
 
