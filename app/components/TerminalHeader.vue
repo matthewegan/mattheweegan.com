@@ -9,11 +9,12 @@ const menuRef = ref<HTMLElement | null>(null);
 
 const navItems = [
   { label: "Resume", path: "/" },
-  // Add new navigation items here as pages are created
+  { label: "Work", path: "/work" },
 ];
 
 function isActive(path: string): boolean {
-  return route.path === path;
+  if (path === "/") return route.path === "/";
+  return route.path.startsWith(path);
 }
 
 function onToggle(event: Event): void {

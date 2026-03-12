@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451.6 588.8" role="img" aria-label="Filter Architecture Diagram">
+  <style>
+    text {
+      font-family: 'JetBrains Mono', 'Cascadia Code', 'Source Code Pro', 'Fira Code', ui-monospace, monospace;
+      font-size: 14px;
+      fill: #cbd5e1;
+    }
+  </style>
+  <rect width="100%" height="100%" fill="#0f172a" rx="6"/>
+  <text x="20" y="39.599999999999994" xml:space="preserve"><tspan fill="#cbd5e1">Configuration Attributes        Filter Pipeline</tspan></text>
+  <text x="20" y="59.199999999999996" xml:space="preserve"><tspan fill="#2dd4bf">========================</tspan><tspan fill="#cbd5e1">        </tspan><tspan fill="#2dd4bf">===============</tspan></text>
+  <text x="20" y="98.39999999999999" xml:space="preserve"><tspan fill="#cbd5e1">                             </tspan><tspan fill="#2dd4bf">+------------------+</tspan></text>
+  <text x="20" y="117.99999999999999" xml:space="preserve"><tspan fill="#cbd5e1">data</tspan><tspan fill="#2dd4bf">-</tspan><tspan fill="#cbd5e1">filter</tspan><tspan fill="#2dd4bf">-</tspan><tspan fill="#cbd5e1">sport</tspan><tspan fill="#2dd4bf">=</tspan><tspan fill="#cbd5e1">&quot;Soccer&quot; </tspan><tspan fill="#2dd4bf">-&gt;|</tspan><tspan fill="#cbd5e1"> Prefilters       </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="137.6" xml:space="preserve"><tspan fill="#cbd5e1">data</tspan><tspan fill="#2dd4bf">-</tspan><tspan fill="#cbd5e1">filter</tspan><tspan fill="#2dd4bf">-</tspan><tspan fill="#cbd5e1">gender</tspan><tspan fill="#2dd4bf">=</tspan><tspan fill="#cbd5e1">&quot;Coed&quot; </tspan><tspan fill="#2dd4bf">--&gt;|</tspan><tspan fill="#cbd5e1"> (restrict scope) </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="157.2" xml:space="preserve"><tspan fill="#cbd5e1">data</tspan><tspan fill="#2dd4bf">-</tspan><tspan fill="#cbd5e1">filter</tspan><tspan fill="#2dd4bf">-</tspan><tspan fill="#cbd5e1">age</tspan><tspan fill="#2dd4bf">=</tspan><tspan fill="#cbd5e1">&quot;8&quot; </tspan><tspan fill="#2dd4bf">--------&gt;|</tspan><tspan fill="#cbd5e1">                  </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="176.79999999999998" xml:space="preserve"><tspan fill="#cbd5e1">                             </tspan><tspan fill="#2dd4bf">+--------+---------+</tspan></text>
+  <text x="20" y="196.39999999999998" xml:space="preserve"><tspan fill="#cbd5e1">                                      </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="215.99999999999997" xml:space="preserve"><tspan fill="#cbd5e1">                                      v</tspan></text>
+  <text x="20" y="235.59999999999997" xml:space="preserve"><tspan fill="#cbd5e1">                             </tspan><tspan fill="#2dd4bf">+------------------+</tspan></text>
+  <text x="20" y="255.2" xml:space="preserve"><tspan fill="#cbd5e1">                             </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1"> Derive Available </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="274.79999999999995" xml:space="preserve"><tspan fill="#cbd5e1">                             </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1"> Filter Options   </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="294.4" xml:space="preserve"><tspan fill="#cbd5e1">                             </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1"> (from prefiltered</tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="313.99999999999994" xml:space="preserve"><tspan fill="#cbd5e1">                             </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1">  data only)      </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="333.59999999999997" xml:space="preserve"><tspan fill="#cbd5e1">                             </tspan><tspan fill="#2dd4bf">+--------+---------+</tspan></text>
+  <text x="20" y="353.2" xml:space="preserve"><tspan fill="#cbd5e1">                                      </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="372.79999999999995" xml:space="preserve"><tspan fill="#cbd5e1">                                      v</tspan></text>
+  <text x="20" y="392.4" xml:space="preserve"><tspan fill="#cbd5e1">                             </tspan><tspan fill="#2dd4bf">+------------------+</tspan></text>
+  <text x="20" y="411.99999999999994" xml:space="preserve"><tspan fill="#cbd5e1">User selects &quot;U10&quot; </tspan><tspan fill="#2dd4bf">---------&gt;|</tspan><tspan fill="#cbd5e1"> User Filters     </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="431.59999999999997" xml:space="preserve"><tspan fill="#cbd5e1">User selects &quot;Spring&quot; </tspan><tspan fill="#2dd4bf">------&gt;|</tspan><tspan fill="#cbd5e1"> (refine within   </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="451.19999999999993" xml:space="preserve"><tspan fill="#cbd5e1">                             </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1">  prefiltered set)</tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="470.79999999999995" xml:space="preserve"><tspan fill="#cbd5e1">                             </tspan><tspan fill="#2dd4bf">+--------+---------+</tspan></text>
+  <text x="20" y="490.4" xml:space="preserve"><tspan fill="#cbd5e1">                                      </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="509.99999999999994" xml:space="preserve"><tspan fill="#cbd5e1">                                      v</tspan></text>
+  <text x="20" y="529.5999999999999" xml:space="preserve"><tspan fill="#cbd5e1">                             </tspan><tspan fill="#2dd4bf">+------------------+</tspan></text>
+  <text x="20" y="549.1999999999999" xml:space="preserve"><tspan fill="#cbd5e1">                             </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1"> Filtered Results </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="568.8" xml:space="preserve"><tspan fill="#cbd5e1">                             </tspan><tspan fill="#2dd4bf">+------------------+</tspan></text>
+</svg>

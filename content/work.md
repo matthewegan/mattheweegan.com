@@ -1,0 +1,20 @@
+---
+title: Work — Matthew Egan
+description: Selected projects and case studies by Matthew Egan — architecture, design decisions, and problem-solving in web development.
+---
+
+# Work
+
+Selected projects — architecture decisions, problem-solving, and technical deep dives.
+
+---
+
+## LeagueApps Programs Widget
+
+::subtext
+Web Components • Shadow DOM • Cloudflare Workers | 2025
+::
+
+A ground-up rebuild of an embeddable programs widget, replacing a problematic vendor solution. Built as a Custom Element with Shadow DOM for real isolation, declarative HTML attribute configuration for marketing self-service, and consent-based tracking to fix a privacy compliance violation. 112 commits, 10,831 net lines, deployed to Cloudflare Workers.
+
+[Read the case study →](/work/leagueapps-programs-widget)

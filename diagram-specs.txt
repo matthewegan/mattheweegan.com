@@ -1,0 +1,105 @@
+Architecture Diagrams for LeagueApps Programs Widget Case Study
+================================================================
+
+Context: These diagrams are for a case study page on a personal portfolio site
+(mattheweegan.com). The site has a retro terminal/CRT aesthetic — dark
+backgrounds, monospace fonts, teal accents — but the diagrams don't need to
+match that literally. They should be clear, technical, and professional.
+
+These will be embedded as images on the page, replacing ASCII art code blocks.
+
+
+DIAGRAM 1: Component Architecture
+----------------------------------
+
+What to communicate:
+
+The widget is a Web Component (<programs-widget> Custom Element) that uses
+Shadow DOM to create a hard isolation boundary. Everything lives inside
+that boundary.
+
+Inside, a single orchestrator called WidgetCore acts as a Facade — it's the
+only thing the Custom Element talks to. WidgetCore coordinates 7 independent
+subsystems:
+
+  - ConfigManager
+  - Data Pipeline (Fetch > Transform > Reshape)
+  - Filter System (State, Logic, Parse)
+  - Sort System (State, Logic)
+  - Search System (State, Logic, HighlightManager)
+  - Rendering (Table, Filters)
+  - Events (Dispatch, Bind)
+
+Key ideas to convey:
+  - Two layers of containment: Custom Element wraps Shadow DOM wraps everything
+  - WidgetCore is the central coordinator — all subsystems connect through it
+  - The subsystems are independent of each other (they don't talk to each other)
+  - Each subsystem has internal sub-components (shown in parentheses above)
+
+
+DIAGRAM 2: Data Pipeline
+--------------------------
+
+What to communicate:
+
+Program data flows through a pipeline that starts wide (multiple parallel API
+calls), narrows through 3 sequential processing stages, fans out to 3 parallel
+systems, then converges to a single rendered output.
+
+The stages:
+
+  1. Multiple API endpoints (site1:key1, site2:key2, site3:key3) are fetched
+     in parallel and deduplicated
+
+  2. DataFetcher output feeds into DataTransformer, which sanitizes HTML,
+     validates URLs, and normalizes types
+
+  3. DataTransformer output feeds into DataReshaper, which groups programs
+     into master/session relationships and flattens into table rows
+
+  4. The clean data is then processed by three independent systems in parallel:
+     Filter System, Search System, and Sort System
+
+  5. Their combined output is paginated, then rendered (either full re-render
+     or partial update)
+
+Key ideas to convey:
+  - Parallel-to-serial-to-parallel flow shape (wide > narrow > wide > narrow)
+  - The 3 processing stages are sequential and each transforms the data
+  - Filter/Search/Sort operate independently on the same dataset
+  - The pipeline ends with a choice: full or partial render
+
+
+DIAGRAM 3: Filter Architecture
+-------------------------------
+
+What to communicate:
+
+The filter system uses two tiers. First, configuration-level prefilters
+(set by the marketing team via HTML attributes) permanently restrict the
+dataset. Then, user-applied filters refine within that restricted scope.
+
+The critical detail: the available filter options shown to the user are
+derived from the prefiltered data, not the full dataset. So if a prefilter
+restricts to "Soccer", the user will only see experience levels, age groups,
+locations, etc. that exist within Soccer programs.
+
+The flow:
+
+  Configuration attributes (data-filter-sport="Soccer",
+  data-filter-gender="Coed", data-filter-age="8") feed into Prefilters,
+  which restrict the scope.
+
+  From the prefiltered data, available filter options are dynamically derived.
+
+  Users make selections (e.g. "U10", "Spring") which apply as a second
+  filter layer within the prefiltered scope.
+
+  The result is the final filtered dataset.
+
+Key ideas to convey:
+  - Two distinct filtering tiers (config vs user) — not a flat list of filters
+  - The prefiltered data determines what options the user even sees
+  - Config inputs come from HTML attributes (developer/marketer controlled)
+  - User inputs come from UI interactions (end-user controlled)
+  - Resetting filters restores to the prefiltered state, not unfiltered

@@ -329,4 +329,15 @@
   article {
     page-break-inside: avoid;
   }
+
+  /* Screenshot placeholders: show caption only */
+  figure [role="img"] {
+    display: none;
+  }
+
+  /* Project metadata: clean print layout */
+  figure figcaption {
+    text-align: left;
+    font-style: italic;
+  }
 }

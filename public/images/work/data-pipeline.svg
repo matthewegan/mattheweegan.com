@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 502 921.9999999999999" role="img" aria-label="Data Pipeline Diagram">
+  <style>
+    text {
+      font-family: 'JetBrains Mono', 'Cascadia Code', 'Source Code Pro', 'Fira Code', ui-monospace, monospace;
+      font-size: 14px;
+      fill: #cbd5e1;
+    }
+  </style>
+  <rect width="100%" height="100%" fill="#0f172a" rx="6"/>
+  <text x="20" y="39.599999999999994" xml:space="preserve"><tspan fill="#cbd5e1">API Endpoints (parallel)    Data Pipeline</tspan></text>
+  <text x="20" y="59.199999999999996" xml:space="preserve"><tspan fill="#2dd4bf">=======================</tspan><tspan fill="#cbd5e1">    </tspan><tspan fill="#2dd4bf">===================</tspan></text>
+  <text x="20" y="98.39999999999999" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">+---------------+</tspan></text>
+  <text x="20" y="117.99999999999999" xml:space="preserve"><tspan fill="#cbd5e1">  site1:key1 </tspan><tspan fill="#2dd4bf">----------+</tspan><tspan fill="#cbd5e1">   </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1"> DataFetcher   </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="137.6" xml:space="preserve"><tspan fill="#cbd5e1">  site2:key2 </tspan><tspan fill="#2dd4bf">----------+--&gt;|</tspan><tspan fill="#cbd5e1"> Parallel fetch</tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="157.2" xml:space="preserve"><tspan fill="#cbd5e1">  site3:key3 </tspan><tspan fill="#2dd4bf">----------+</tspan><tspan fill="#cbd5e1">   </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1"> Deduplicate   </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="176.79999999999998" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">+-------+-------+</tspan></text>
+  <text x="20" y="196.39999999999998" xml:space="preserve"><tspan fill="#cbd5e1">                                   </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="215.99999999999997" xml:space="preserve"><tspan fill="#cbd5e1">                                   v</tspan></text>
+  <text x="20" y="235.59999999999997" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">+---------------+</tspan></text>
+  <text x="20" y="255.2" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1">DataTransformer</tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="274.79999999999995" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1"> Sanitize HTML </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="294.4" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1"> Validate URLs </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="313.99999999999994" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1"> Normalize type</tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="333.59999999999997" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">+-------+-------+</tspan></text>
+  <text x="20" y="353.2" xml:space="preserve"><tspan fill="#cbd5e1">                                   </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="372.79999999999995" xml:space="preserve"><tspan fill="#cbd5e1">                                   v</tspan></text>
+  <text x="20" y="392.4" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">+---------------+</tspan></text>
+  <text x="20" y="411.99999999999994" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1"> DataReshaper  </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="431.59999999999997" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1"> Master/session</tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="451.19999999999993" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1"> Group/flatten </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="470.79999999999995" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">+-------+-------+</tspan></text>
+  <text x="20" y="490.4" xml:space="preserve"><tspan fill="#cbd5e1">                                   </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="509.99999999999994" xml:space="preserve"><tspan fill="#cbd5e1">                    </tspan><tspan fill="#2dd4bf">+--------------+---------------+</tspan></text>
+  <text x="20" y="529.5999999999999" xml:space="preserve"><tspan fill="#cbd5e1">                    </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1">              </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1">               </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="549.1999999999999" xml:space="preserve"><tspan fill="#cbd5e1">                    v              v               v</tspan></text>
+  <text x="20" y="568.8" xml:space="preserve"><tspan fill="#cbd5e1">              </tspan><tspan fill="#2dd4bf">+---------+</tspan><tspan fill="#cbd5e1">   </tspan><tspan fill="#2dd4bf">+---------+</tspan><tspan fill="#cbd5e1">   </tspan><tspan fill="#2dd4bf">+-----------+</tspan></text>
+  <text x="20" y="588.4" xml:space="preserve"><tspan fill="#cbd5e1">              </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1"> Filter  </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1">   </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1"> Search  </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1">   </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1">   Sort    </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="607.9999999999999" xml:space="preserve"><tspan fill="#cbd5e1">              </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1"> System  </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1">   </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1"> System  </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1">   </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1">  System   </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="627.5999999999999" xml:space="preserve"><tspan fill="#cbd5e1">              </tspan><tspan fill="#2dd4bf">+----+----+</tspan><tspan fill="#cbd5e1">   </tspan><tspan fill="#2dd4bf">+----+----+</tspan><tspan fill="#cbd5e1">   </tspan><tspan fill="#2dd4bf">+-----+-----+</tspan></text>
+  <text x="20" y="647.1999999999999" xml:space="preserve"><tspan fill="#cbd5e1">                   </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1">              </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1">              </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="666.8" xml:space="preserve"><tspan fill="#cbd5e1">                   </tspan><tspan fill="#2dd4bf">+--------------+--------------+</tspan></text>
+  <text x="20" y="686.4" xml:space="preserve"><tspan fill="#cbd5e1">                                  </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="705.9999999999999" xml:space="preserve"><tspan fill="#cbd5e1">                                  v</tspan></text>
+  <text x="20" y="725.5999999999999" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">+-----------+</tspan></text>
+  <text x="20" y="745.1999999999999" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1"> Paginate  </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="764.8" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">+-----+-----+</tspan></text>
+  <text x="20" y="784.3999999999999" xml:space="preserve"><tspan fill="#cbd5e1">                                 </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="803.9999999999999" xml:space="preserve"><tspan fill="#cbd5e1">                                 v</tspan></text>
+  <text x="20" y="823.5999999999999" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">+-----------+</tspan></text>
+  <text x="20" y="843.1999999999999" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1">  Render   </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="862.8" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1"> (full or  </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="882.3999999999999" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">|</tspan><tspan fill="#cbd5e1">  partial) </tspan><tspan fill="#2dd4bf">|</tspan></text>
+  <text x="20" y="901.9999999999999" xml:space="preserve"><tspan fill="#cbd5e1">                           </tspan><tspan fill="#2dd4bf">+-----------+</tspan></text>
+</svg>
