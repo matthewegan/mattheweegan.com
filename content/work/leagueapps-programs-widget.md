@@ -151,11 +151,10 @@ Typing in the search input triggers filtering on every keystroke. Full re-render
 
 ## Screenshots
 
-::screenshot-placeholder{alt="Desktop table view" caption="Faceted filters with sortable data table — desktop layout"}
-::
+![Development sandbox configurator — declarative attribute controls for site keys, columns, filters, and prefilter values](/images/work/configurator.webp)
 
-::screenshot-placeholder{alt="Mobile responsive view" caption="Stacked layout with collapsible filters — mobile viewport"}
-::
+![Desktop table view — faceted filter dropdowns with sortable data table and registration links](/images/work/widget-table.webp)
 
-::screenshot-placeholder{alt="Search highlighting" caption="Real-time search with CSS Custom Highlight API — matching text highlighted without DOM modification"}
-::
+![Mobile responsive view — stacked card layout with collapsible filters and search](/images/work/widget-mobile.webp)
+
+![Real-time search with CSS Custom Highlight API — matching text highlighted without DOM modification](/images/work/search-highlight.webp)
