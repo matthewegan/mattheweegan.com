@@ -35,7 +35,7 @@ The St. James embedded a vendor-provided JavaScript widget to display youth spor
 
 ### Marketing Bottleneck
 
-Any change to the widget — adding a new sport, adjusting filters, updating display settings — required a developer to modify configuration and redeploy. The marketing team couldn't make changes themselves, and every request competed with other development priorities. What should have been a self-service tool was a recurring ticket queue.
+Any change to the widget — adding a new sport, adjusting filters, updating display settings — meant reaching out to the vendor to get a new configuration instance. The marketing team couldn't make changes themselves, and it happened often enough to be a bottleneck.
 
 ### Privacy Violation
 
@@ -83,7 +83,7 @@ The filter system uses a **two-tier model** — prefilters (set via HTML attribu
 
 ### Why Web Components
 
-The host site runs Nuxt 2 (Vue 2). Embedding a Vue 3 component would mean bundling a second Vue runtime, managing version conflicts, and coupling the widget's lifecycle to the host app's. A Custom Element with Shadow DOM avoids all of this — the widget loads as a single script, registers itself, and runs in complete isolation. No framework dependency, no build integration, no version conflicts.
+The original host site ran Nuxt 2 (Vue 2), but the widget now runs across multiple domains — WordPress sites, static pages, and other CMS platforms. A framework-specific component would mean bundling a runtime, managing version conflicts, and coupling the widget's lifecycle to each host app. A Custom Element with Shadow DOM avoids all of this — the widget loads as a single script, registers itself, and runs in complete isolation. No framework dependency, no build integration, no assumptions about the host environment.
 
 ### Shadow DOM for Real Isolation
 
