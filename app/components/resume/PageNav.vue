@@ -9,7 +9,6 @@ const menuRef = ref<HTMLElement | null>(null);
 const sections = [
   { id: "summary", label: "Summary" },
   { id: "professional-experience", label: "Experience" },
-  { id: "other-professional-experience", label: "Other Experience" },
   { id: "education", label: "Education" },
   { id: "profiles", label: "Profiles" },
 ];

@@ -9,6 +9,18 @@ Selected projects — architecture decisions, problem-solving, and technical dee
 
 ---
 
+## Contentstack Block Finder
+
+::subtext
+Next.js • React • TypeScript • Contentstack SDKs | 2026
+::
+
+An internal tool that connects to a Contentstack stack and maps every modular block across all content types. Recursively walks schemas to discover blocks nested inside groups, global fields, and other blocks, then searches entries to find actual usage. Built with Next.js API routes for server-side SDK calls and a React frontend with shadcn/ui.
+
+[Read the case study →](/work/contentstack-block-finder)
+
+---
+
 ## LeagueApps Programs Widget
 
 ::subtext

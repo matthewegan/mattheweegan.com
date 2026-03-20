@@ -21,16 +21,16 @@ LinkedIn: [linkedin.com/in/matthew-egan-2a1b369](https://linkedin.com/in/matthew
 
 ## Summary
 
-Full-stack developer with 16+ years of experience building and maintaining commercial web applications. Currently the lead developer on a headless CMS site with custom ecommerce, payment integrations, and SSO. Background covers frontend architecture (Vue, Nuxt, TypeScript), API integrations, cloud infrastructure (AWS, Cloudflare), and CI/CD. Track record of identifying problems and shipping solutions independently.
+Full-stack developer with 16+ years of experience building and maintaining commercial web applications. Currently the lead developer on a headless CMS site with custom ecommerce, payment integrations, and SSO. Background covers frontend architecture (Vue, Nuxt, React, Next.js, TypeScript), API integrations, cloud infrastructure (AWS, Cloudflare), and CI/CD. Track record of identifying problems and shipping solutions independently.
 
 ## Technical Skills
 
 - **Languages:** JavaScript, TypeScript, PHP, SQL, HTML, CSS
-- **Frameworks:** Vue (Options API, Composition API), Nuxt, Laravel, jQuery
+- **Frameworks:** Vue (Options API, Composition API), Nuxt, React, Next.js, Laravel, jQuery
 - **Styling:** CSS, Sass, Tailwind CSS
 - **Databases:** MySQL, Oracle, PostgreSQL
 - **Cloud & Infrastructure:** AWS (Lambda@Edge, CloudFront, ACM, Route 53, ECS, CloudFormation), Cloudflare (Pages, Workers), Docker
-- **Tools & Platforms:** Git, CI/CD pipelines, Contentstack, Sanity, Algolia, Google Analytics, Google Tag Manager
+- **Tools & Platforms:** Git, CI/CD pipelines, Contentstack, Sanity, Algolia, shadcn/ui, Google Analytics, Google Tag Manager
 - **Practices:** RESTful API design, SSO/OIDC, agile development, requirements gathering, analytics instrumentation
 
 ## Professional Experience
@@ -51,10 +51,11 @@ Senior Software Architect • Feb 2020–Present
 - Built a Lambda@Edge redirect service on CloudFront to consolidate multiple sport-specific domains into a single site, provisioning distributions, ACM certificates, and Route 53 DNS for each domain.
 - Owned DNS, CDN, and deployment infrastructure across AWS (ECS, CloudFront, Route 53) and Cloudflare (Pages, Workers). Maintained CI/CD pipelines and monitoring.
 - Built analytics instrumentation and defined the event taxonomy used for all stakeholder reporting.
+- Built the Contentstack Block Finder, an internal tool (Next.js, React, TypeScript, shadcn/ui) that recursively analyzes content type schemas to discover modular block usage across a Contentstack stack. Includes entry search, content type filtering, and JSON/CSV export.
 
 ::collapsible-section{title="Skills and Tools"}
-- JavaScript, TypeScript, Vue 3 (Composition API), Nuxt
-- HTML, CSS, Sass, Tailwind CSS
+- JavaScript, TypeScript, Vue 3 (Composition API), Nuxt, React, Next.js
+- HTML, CSS, Sass, Tailwind CSS, shadcn/ui
 - Web Components, Shadow DOM, Custom Elements
 - Contentstack (headless CMS)
 - Pinia, Vuex (migration experience)
