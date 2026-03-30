@@ -50,4 +50,4 @@ I'm US-based (Eastern time), communicate directly, and deliver fast. Most projec
 
 ## Get in Touch
 
-Have a project in mind? Email me at [egan.matthew@me.com](mailto:egan.matthew@me.com) and tell me what you're working on. I'll get back to you within a day.
+Have a project in mind? Email me at [matt@mattheweegan.com](mailto:matt@mattheweegan.com) and tell me what you're working on. I'll get back to you within a day.

@@ -13,7 +13,7 @@ Software Architect | Web Developer
 Washington, DC Region
 
 #email
-Email: [egan.matthew@me.com](mailto:egan.matthew@me.com)
+Email: [matt@mattheweegan.com](mailto:matt@mattheweegan.com)
 
 #profiles
 LinkedIn: [linkedin.com/in/matthew-egan-2a1b369](https://linkedin.com/in/matthew-egan-2a1b369) • GitHub: [github.com/matthewegan](https://github.com/matthewegan)

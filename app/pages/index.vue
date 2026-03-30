@@ -33,7 +33,7 @@ useHead({
         name: "Matthew Egan",
         jobTitle: "Senior Software Architect",
         description: resume.value.description,
-        email: "egan.matthew@me.com",
+        email: "matt@mattheweegan.com",
         address: {
           "@type": "PostalAddress",
           addressLocality: "Washington",

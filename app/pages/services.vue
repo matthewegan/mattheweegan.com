@@ -33,7 +33,7 @@ useHead({
         name: "Matthew Egan — Freelance Web Development",
         url: "https://mattheweegan.com/services",
         description: services.value.description,
-        email: "egan.matthew@me.com",
+        email: "matt@mattheweegan.com",
         address: {
           "@type": "PostalAddress",
           addressLocality: "Washington",
