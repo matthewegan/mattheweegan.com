@@ -10,6 +10,7 @@ const menuRef = ref<HTMLElement | null>(null);
 const navItems = [
   { label: "Resume", path: "/" },
   { label: "Work", path: "/work" },
+  { label: "Services", path: "/services" },
 ];
 
 function isActive(path: string): boolean {
