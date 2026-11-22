@@ -1,6 +1,8 @@
 ---
-title: Contentstack Block Finder — Case Study
-description: A Next.js internal tool that recursively analyzes Contentstack content type schemas to discover and search modular block usage across a stack — solving a CMS visibility gap.
+title: Contentstack Block Finder
+category: Content tools
+position: 5
+description: Find the pages that use a CMS block before you change it, even when the block is nested inside another.
 sections:
   - id: the-problem
     label: Problem

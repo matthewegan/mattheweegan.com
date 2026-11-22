@@ -1,28 +1,14 @@
 <script setup lang="ts">
-const { data: resume } = await useAsyncData("resume", () =>
-  queryCollection("content").path("/resume").first(),
-);
-
-if (!resume.value) {
-  throw createError({
-    statusCode: 404,
-    message: "Resume not found",
-  });
-}
-
+const title = "Matt Egan | Software architect";
+const description =
+  "Selected work in AI tools, identity and software review by Matt Egan, senior software architect at The St. James.";
 useSeoMeta({
-  title: resume.value.title,
-  description: resume.value.description,
-  ogTitle: resume.value.title,
-  ogDescription: resume.value.description,
+  title,
+  description,
+  ogTitle: title,
+  ogDescription: description,
   ogType: "profile",
-  ogImage: "/og-image.png",
-  twitterCard: "summary_large_image",
-  twitterTitle: resume.value.title,
-  twitterDescription: resume.value.description,
-  twitterImage: "/og-image.png",
 });
-
 useHead({
   script: [
     {
@@ -32,16 +18,11 @@ useHead({
         "@type": "Person",
         name: "Matthew Egan",
         jobTitle: "Senior Software Architect",
-        description: resume.value.description,
+        url: "https://mattheweegan.com",
         email: "matt@mattheweegan.com",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Washington",
-          addressRegion: "DC",
-        },
         sameAs: [
-          "https://linkedin.com/in/matthew-egan-2a1b369",
           "https://github.com/matthewegan",
+          "https://linkedin.com/in/matthew-egan-2a1b369",
         ],
       }),
     },
@@ -50,49 +31,46 @@ useHead({
 </script>
 
 <template>
-  <div>
-    <!-- Page navigation -->
-    <ResumePageNav />
-
-    <!-- Main content -->
-    <PageMain>
-      <article class="terminal-window p-6 sm:p-8">
-        <!-- Download PDF action -->
-        <div class="flex justify-end mb-4 print:hidden">
-          <a
-            href="/matthew_egan_resume.pdf"
-            download="matthew_egan_resume.pdf"
-            class="inline-block font-mono text-sm transition-all duration-200 group"
-          >
-            <span class="text-slate-500 group-hover:text-teal-500">[</span>
-            <span class="text-teal-400">Download PDF</span>
-            <span class="text-slate-500 group-hover:text-teal-500">]</span>
-          </a>
-        </div>
-
-        <ContentRenderer
-          v-if="resume"
-          :value="resume"
-          class="prose prose-invert max-w-none font-mono"
+  <main id="main-content">
+    <section class="cover" aria-labelledby="intro">
+      <div class="cover-copy">
+        <p class="byline">Senior software architect</p>
+        <h1 id="intro">Matt Egan</h1>
+        <p class="intro">
+          I build software at The St. James. I built an MCP server so analysts
+          can ask questions about our data. I also build the tools our engineers
+          use to check the work they hand to AI.
+        </p>
+        <a class="button" href="#selected-work">See selected work</a>
+      </div>
+      <div class="cover-art">
+        <img
+          src="/images/combination-square.webp"
+          alt="A midcentury print of a combination square and carpenter’s pencil."
+          width="1120"
+          height="840"
+          fetchpriority="high"
         />
-      </article>
-    </PageMain>
-  </div>
+      </div>
+    </section>
+    <section
+      id="selected-work"
+      class="work-section"
+      aria-labelledby="work-heading"
+    >
+      <div class="section-head">
+        <h2 id="work-heading">Selected work</h2>
+        <NuxtLink to="/work">All projects</NuxtLink>
+      </div>
+      <ProjectList featured />
+    </section>
+    <section class="offclock">
+      <h2>Away from the keyboard</h2>
+      <p>
+        I framed walls in my basement, hung drywall and laid tile. I painted the
+        whole house, ceilings included. I like cutting in by hand. Never used
+        painter’s tape.
+      </p>
+    </section>
+  </main>
 </template>
-
-<style scoped>
-/* Download link glow effect */
-.group:hover span:nth-child(2),
-.group:focus-visible span:nth-child(2) {
-  text-shadow:
-    0 0 10px rgba(20, 184, 166, 0.6),
-    0 0 20px rgba(20, 184, 166, 0.3);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .group:hover span:nth-child(2),
-  .group:focus-visible span:nth-child(2) {
-    text-shadow: none;
-  }
-}
-</style>

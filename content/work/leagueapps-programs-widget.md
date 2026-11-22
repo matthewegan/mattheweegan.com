@@ -1,6 +1,8 @@
 ---
-title: LeagueApps Programs Widget — Case Study
-description: A ground-up rebuild of an embeddable programs widget using Web Components, Shadow DOM, and Cloudflare Workers — replacing a problematic vendor solution with a self-service, privacy-compliant alternative.
+title: LeagueApps Programs Widget
+category: Web components
+position: 6
+description: Give marketing a way to publish sports programs across sites without waiting on a developer.
 sections:
   - id: the-problem
     label: Problem

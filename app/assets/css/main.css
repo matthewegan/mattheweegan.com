@@ -1,343 +1,430 @@
 @import "tailwindcss";
 
-@theme {
-  --font-mono:
-    "JetBrains Mono", ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
-    Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+@font-face {
+  font-family: "Barlow Condensed";
+  src: url("/fonts/barlow-condensed-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
-
-/* Base layer - HTML element defaults */
-@layer base {
-  :root {
-    /* Layout measurements for sticky positioning */
-    /* Header is taller on mobile (61px), shorter on desktop (37px via media query below) */
-    --header-height: 61px;
-    --page-nav-height: 45px;
+:root {
+  --ink: #173c45;
+  --paper: #faf8ef;
+  --muted: #475b5c;
+  --red: #a43122;
+  --rule: #b8bcb0;
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.55;
+}
+body {
+  margin: 0;
+}
+.sheet {
+  width: min(84rem, 90%);
+  margin: 0 auto;
+}
+a {
+  color: inherit;
+  text-underline-offset: 0.23em;
+}
+a:hover {
+  color: var(--red);
+}
+:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 4px;
+}
+.skip {
+  position: absolute;
+  top: -8rem;
+  left: 1rem;
+  padding: 0.8rem;
+  background: white;
+  z-index: 3;
+}
+.skip:focus {
+  top: 0.5rem;
+}
+.masthead,
+footer,
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.masthead {
+  padding: 1.25rem 0;
+  border-bottom: 2px solid var(--ink);
+}
+.signature {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.masthead nav,
+footer nav,
+.contents {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(0.8rem, 2.5vw, 2.6rem);
+}
+nav a,
+.section-head a,
+.back {
+  font-weight: 600;
+}
+nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+nav a:hover,
+.router-link-active:not(.signature),
+.section-head a,
+.back,
+.email {
+  text-decoration: underline;
+}
+.cover {
+  display: grid;
+  grid-template-columns: 1fr 1.04fr;
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+  padding: clamp(2.1rem, 4.4vw, 4.8rem) 0;
+}
+.byline,
+.project-kind {
+  color: var(--red);
+  font-weight: 650;
+  font-size: 0.95rem;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--display);
+  font-weight: 700;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+.cover h1 {
+  font-size: clamp(5rem, 9.7vw, 9.8rem);
+  letter-spacing: -0.035em;
+  line-height: 0.99;
+  margin: 0.28rem 0 1.3rem;
+}
+.intro {
+  max-width: 35em;
+  font-size: clamp(1.08rem, 1.48vw, 1.36rem);
+  line-height: 1.52;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  margin-top: 1.65rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: 0.16rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 650;
+}
+.button:hover {
+  background: var(--red);
+  color: white;
+}
+.cover-art {
+  background: #e9b94f;
+}
+.cover-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.work-section {
+  border-top: 5px solid var(--ink);
+}
+.section-head {
+  padding: 1.7rem 0 1.35rem;
+  align-items: baseline;
+}
+.section-head h2,
+.offclock h2,
+footer h2 {
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  letter-spacing: -0.025em;
+}
+.section-head a {
+  font-size: 0.96rem;
+  padding: 0.6rem 0;
+}
+.project-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.project-list li {
+  border-top: 1px solid var(--rule);
+}
+.project-list li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+.project-list a {
+  display: grid;
+  grid-template-columns: minmax(8.2rem, 1fr) 3.3fr auto;
+  gap: clamp(1rem, 3vw, 4rem);
+  align-items: baseline;
+  padding: 1.6rem 0 1.8rem;
+}
+.project-title {
+  font-size: clamp(1.9rem, 3.1vw, 2.8rem);
+}
+.project-list p {
+  max-width: 62ch;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-top: 0.6rem;
+  font-size: 1.05rem;
+}
+.read-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.project-list a:hover .project-title {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+.offclock {
+  display: grid;
+  grid-template-columns: 1fr 1.55fr;
+  gap: 2rem;
+  margin: 3rem 0;
+  padding: 2.4rem;
+  background: #e6ece6;
+}
+.offclock p {
+  max-width: 53ch;
+  font-size: 1.15rem;
+}
+footer {
+  padding: 2.1rem 0 2.8rem;
+  margin-top: 3rem;
+  border-top: 3px solid var(--ink);
+}
+footer h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.45rem;
+}
+.archive {
+  border: 0;
+}
+.archive h1,
+.prose h1 {
+  font-size: clamp(3.7rem, 7vw, 6.2rem);
+  letter-spacing: -0.03em;
+}
+.archive h1 {
+  margin: 2.7rem 0 2rem;
+}
+.article-page {
+  max-width: 54rem;
+  margin: clamp(2.5rem, 5vw, 5rem) auto;
+}
+.article-page .byline {
+  margin-bottom: 0.5rem;
+}
+.back {
+  display: inline-block;
+  margin-bottom: 2.2rem;
+}
+.prose {
+  font-size: 1.12rem;
+  overflow-wrap: break-word;
+}
+.prose > * {
+  margin: 1rem 0;
+}
+.prose h1 {
+  margin: 0 0 1.6rem;
+}
+.prose h2 {
+  margin: 2.5rem 0 0.8rem;
+  font-size: clamp(2.15rem, 4vw, 3rem);
+}
+.prose h3,
+.prose h4 {
+  margin: 1.8rem 0 0.5rem;
+  font-size: 1.7rem;
+}
+.prose a {
+  text-decoration: underline;
+}
+.prose :is(h1, h2, h3) a {
+  text-decoration: none;
+}
+.prose ul,
+.prose ol {
+  padding-left: 1.4em;
+}
+.prose ul {
+  list-style: disc;
+}
+.prose ol {
+  list-style: decimal;
+}
+.prose li {
+  margin: 0.4rem 0;
+}
+.prose code {
+  font-size: 0.87em;
+}
+.prose pre {
+  overflow-x: auto;
+  padding: 1rem;
+  background: #e6ece6;
+}
+.prose img {
+  max-width: 100%;
+  margin: 1.6rem 0;
+}
+.prose hr,
+.contents {
+  border-top: 1px solid var(--rule);
+  margin: 1.8rem 0;
+}
+.contents {
+  padding-top: 0.75rem;
+}
+.project-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  background: #e6ece6;
+  padding: 1.2rem;
+  font-size: 1rem;
+}
+.project-meta dt {
+  font-weight: 700;
+}
+@media (max-width: 720px) {
+  .sheet {
+    width: min(90%, 38rem);
   }
-
-  @media (min-width: 768px) {
-    :root {
-      --header-height: 37px;
-    }
+  .masthead {
+    padding: 0.75rem 0;
   }
-
-  * {
-    @apply border-slate-700;
+  .signature {
+    font-size: 1.28rem;
+    gap: 0.45rem;
   }
-
-  html {
-    font-family: var(--font-mono), monospace;
-    font-feature-settings:
-      "liga" 1,
-      "calt" 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  .signature img {
+    width: 32px;
+    height: 32px;
   }
-
-  body {
-    @apply text-slate-50;
-    /* Slight teal tint to the dark background for CRT feel */
-    background-color: #020a09;
-    /* Subtle phosphor dot pattern */
-    background-image: radial-gradient(
-      circle at center,
-      rgba(20, 184, 166, 0.03) 0%,
-      transparent 1px
-    );
-    background-size: 3px 3px;
+  .masthead nav {
+    gap: 0.8rem;
+    font-size: 0.91rem;
   }
-
-  /* Offset anchor scroll positions to account for sticky headers */
-  h1,
-  h2,
-  h3 {
-    scroll-margin-top: calc(
-      var(--header-height) + var(--page-nav-height) + 1rem
-    );
+  .cover {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding: 2.2rem 0 1.7rem;
   }
-
-  :focus-visible {
-    @apply outline-2 outline-offset-2 outline-teal-400;
+  .cover h1 {
+    margin-bottom: 0.75rem;
   }
-
-  /* Screen reader only utility */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-  }
-
-  .focus\:not-sr-only:focus {
-    position: static;
-    width: auto;
+  .cover-art img {
     height: auto;
-    padding: inherit;
-    margin: inherit;
-    overflow: visible;
-    clip: auto;
-    white-space: normal;
+    max-height: 20rem;
+    object-fit: contain;
   }
-}
-
-@layer components {
-  /* Terminal window chrome */
-  .terminal-window {
-    @apply border border-slate-700 bg-slate-900/90;
-    border-radius: 2px;
-    box-shadow:
-      0 0 0 1px rgba(148, 163, 184, 0.1),
-      0 2px 8px rgba(0, 0, 0, 0.4);
+  .project-list a {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+    padding: 1.3rem 0;
   }
-
-  .terminal-header {
-    @apply border-b border-slate-700 bg-slate-800/50 px-4 py-2 font-mono text-sm;
-  }
-
-  .prose-h1-glow {
-    text-shadow:
-      0 0 20px rgba(20, 184, 166, 0.4),
-      0 0 40px rgba(20, 184, 166, 0.2);
-  }
-
-  .prose-bracket-glow {
-    text-shadow:
-      0 0 10px rgba(20, 184, 166, 0.6),
-      0 0 20px rgba(20, 184, 166, 0.3);
-  }
-
-  .prose-h2-glow {
-    text-shadow:
-      0 0 15px rgba(251, 191, 36, 0.3),
-      0 0 30px rgba(251, 191, 36, 0.15);
-  }
-
-  .prose-h3-glow {
-    text-shadow:
-      0 0 12px rgba(192, 132, 252, 0.3),
-      0 0 24px rgba(192, 132, 252, 0.15);
-  }
-
-  /* Reduce visual complexity for users who prefer reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .prose-h1-glow,
-    .prose-h2-glow,
-    .prose-h3-glow,
-    .prose-bracket-glow {
-      text-shadow: none;
-    }
-  }
-
-  /* CRT effect - scanlines (respects prefers-reduced-motion) */
-  .crt-scanlines {
-    position: relative;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .crt-scanlines::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-      background:
-        repeating-linear-gradient(
-          0deg,
-          rgba(0, 20, 18, 0.25) 0px,
-          rgba(0, 20, 18, 0.25) 1px,
-          transparent 1px,
-          transparent 2px
-        ),
-        repeating-linear-gradient(
-          0deg,
-          transparent 0px,
-          transparent 3px,
-          rgba(20, 184, 166, 0.02) 3px,
-          rgba(20, 184, 166, 0.02) 4px
-        );
-      animation: crt-flicker 8s infinite;
-      /* Force GPU compositing on iOS to prevent layout shift during repaints */
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-    }
-
-    @keyframes crt-flicker {
-      0%,
-      100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.97;
-      }
-      52% {
-        opacity: 1;
-      }
-      54% {
-        opacity: 0.98;
-      }
-    }
-  }
-
-  .crt-glow {
-    box-shadow:
-      /* Inner teal phosphor glow */
-      inset 0 0 60px rgba(20, 184, 166, 0.12),
-      inset 0 0 120px rgba(20, 184, 166, 0.06),
-      /* Vignette - darker corners */ inset 0 0 200px 80px rgba(0, 0, 0, 0.15);
-  }
-
-  .power-led {
-    @apply inline-block h-2 w-2 rounded-full bg-teal-400;
-    box-shadow:
-      0 0 6px rgba(20, 184, 166, 0.9),
-      0 0 12px rgba(20, 184, 166, 0.6),
-      0 0 20px rgba(20, 184, 166, 0.3);
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .power-led {
-      animation: led-pulse 3s ease-in-out infinite;
-    }
-
-    @keyframes led-pulse {
-      0%,
-      100% {
-        box-shadow:
-          0 0 6px rgba(20, 184, 166, 0.9),
-          0 0 12px rgba(20, 184, 166, 0.6),
-          0 0 20px rgba(20, 184, 166, 0.3);
-      }
-      50% {
-        box-shadow:
-          0 0 8px rgba(20, 184, 166, 1),
-          0 0 16px rgba(20, 184, 166, 0.7),
-          0 0 28px rgba(20, 184, 166, 0.4);
-      }
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .power-led {
-      box-shadow: 0 0 4px rgba(20, 184, 166, 0.6);
-    }
-  }
-
-  .ascii-divider {
-    @apply my-6 flex items-center justify-center text-slate-600;
-  }
-
-  .ascii-divider::before {
-    content: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━";
-    @apply font-mono text-xs;
-  }
-
-  /* Collapsible details/summary glow effects (works with CollapsibleSection component) */
-  details summary:hover,
-  details summary:focus-visible {
-    text-shadow: 0 0 8px rgba(20, 184, 166, 0.3);
-  }
-
-  /* Thumb-friendly touch targets for mobile */
-  @media (max-width: 768px) {
-    summary,
-    button,
-    a {
-      min-height: 44px;
-      min-width: 44px;
-    }
-  }
-}
-
-@media print {
-  @page {
-    margin: 0.75in;
-    size: letter portrait;
-  }
-
-  html {
-    @apply bg-white text-slate-900;
-  }
-
-  body {
-    @apply bg-white text-slate-900;
-    background-image: none;
-  }
-
-  .prose-h1-glow,
-  .prose-h2-glow,
-  .prose-h3-glow,
-  .prose-bracket-glow {
-    text-shadow: none;
-  }
-
-  .crt-scanlines::before {
-    display: none !important;
-  }
-
-  .crt-glow {
-    box-shadow: none !important;
-  }
-
-  .power-led,
-  .terminal-header,
-  nav,
-  button {
-    display: none !important;
-  }
-
-  .terminal-window {
-    border: none !important;
-    background: none !important;
-    box-shadow: none !important;
-  }
-
-  /* Hide URL display - link text already contains URLs in this resume */
-  a[href]::after {
-    content: none !important;
-  }
-
-  /* Restore standard list styling for print */
-  ul {
-    list-style-type: disc;
-    padding-left: 1.5rem;
-  }
-
-  li {
-    display: list-item;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  li {
-    page-break-inside: avoid;
-  }
-
-  section,
-  article {
-    page-break-inside: avoid;
-  }
-
-  /* Screenshot placeholders: show caption only */
-  figure [role="img"] {
+  .read-link {
     display: none;
   }
-
-  /* Project metadata: clean print layout */
-  figure figcaption {
-    text-align: left;
-    font-style: italic;
+  .offclock {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  footer {
+    align-items: start;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+  .project-meta {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 370px) {
+  .signature {
+    font-size: 0;
+  }
+}
+@media print {
+  @page {
+    margin: 0.65in;
+    size: letter;
+  }
+  :root {
+    background: white;
+    color: black;
+  }
+  .sheet {
+    width: auto;
+  }
+  .masthead,
+  .skip,
+  footer,
+  .back,
+  .contents,
+  .button,
+  .read-link,
+  .section-head a {
+    display: none;
+  }
+  .article-page {
+    margin: 0;
+    max-width: none;
+  }
+  .prose {
+    font-size: 10.75pt;
+    line-height: 1.42;
+  }
+  .prose > * {
+    margin: 0.65rem 0;
+  }
+  .prose h1 {
+    font-size: 33pt;
+  }
+  .prose h2 {
+    font-size: 21pt;
+    margin: 1.2rem 0 0.45rem;
+  }
+  .prose h3 {
+    font-size: 16pt;
+  }
+  .prose :is(h1, h2, h3, h4) {
+    break-after: avoid;
+  }
+  .project-list li,
+  .offclock,
+  .project-meta {
+    break-inside: avoid;
   }
 }

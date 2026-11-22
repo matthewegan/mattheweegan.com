@@ -1,17 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-  <!-- Pixelated M favicon - pudgy version -->
-
-  <!-- Left leg -->
-  <rect x="2" y="2" width="3" height="12" fill="#2dd4bf"/>
-
-  <!-- Left diagonal -->
-  <rect x="5" y="2" width="2" height="4" fill="#2dd4bf"/>
-  <rect x="6" y="6" width="2" height="2" fill="#2dd4bf"/>
-
-  <!-- Right diagonal -->
-  <rect x="8" y="6" width="2" height="2" fill="#2dd4bf"/>
-  <rect x="9" y="2" width="2" height="4" fill="#2dd4bf"/>
-
-  <!-- Right leg -->
-  <rect x="11" y="2" width="3" height="12" fill="#2dd4bf"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="3" fill="#193e47"/><path d="M7 35V13h5l5 11 5-11h5v22h-5V23l-5 10-5-10v12zm23-22h11v5h-6v4h6v5h-6v3h6v5H30z" fill="#f9f6ea"/></svg>
