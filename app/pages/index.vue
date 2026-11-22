@@ -37,9 +37,10 @@ useHead({
         <p class="byline">Senior software architect</p>
         <h1 id="intro">Matt Egan</h1>
         <p class="intro">
-          I joined The St. James in 2018 to work on the website and checkout.
-          One of my recent projects lets our analysts ask questions about
-          company data from the AI tools they already use.
+          I like figuring out why something that sounds simple takes half an
+          afternoon. I usually ask someone to walk me through how they do it.
+          I’m interested in the parts I’d miss from reading the code, like what
+          they know to double-check and what they still have to do by hand.
         </p>
         <a class="button" href="#selected-work">See selected work</a>
       </div>
