@@ -2,15 +2,19 @@
 title: SSO Nextgen
 category: Identity systems
 position: 3
-description: Rebuilding sign-in meant accounting for the people recovering an account, granting consent or connecting to guest Wi-Fi.
+description: Moving the sign-in service to Nuxt while keeping existing member accounts and the apps that use them working.
 ---
 
 # SSO Nextgen
 
-At The St. James, several apps depend on one sign-in service. I worked on moving that service from NestJS to Nuxt while keeping the existing account database and the OpenID Connect contract that client apps depend on.
+Several apps at The St. James share a sign-in service. I worked on moving it from NestJS to Nuxt. We kept the account database and the OpenID Connect interface the apps already used.
 
-## What has to survive a migration?
+## [Sign-in checks]{#what-has-to-survive-a-migration}
 
-The obvious test is signing in with a working account. A member who’s forgotten a password takes a different route. So does someone opening an app that needs their consent. I treated those paths as requirements for the replacement.
+My cutover plan included three paths through sign-in.
 
-We ran the replacement in staging. Some checks belonged there. Guest Wi-Fi needed a test on the actual network. I kept that distinction in the cutover plan so a passing browser test wouldn’t be mistaken for a test of the whole trip.
+- A member has forgotten their password and needs to get back into their account.
+- An app needs the member’s consent before it can finish signing them in.
+- A guest is signing in through the Wi-Fi network.
+
+We ran the replacement service in staging. The Wi-Fi check needed a separate test on the guest network.

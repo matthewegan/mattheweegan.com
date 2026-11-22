@@ -2,17 +2,17 @@
 title: The St. James MCP
 category: AI & data
 position: 1
-description: An assistant can write a valid query against the wrong table. I built a way for it to find the records our analysts trust.
+description: I connected our AI assistants to company data and documented which tables to use for common reporting questions.
 ---
 
 # The St. James MCP
 
-Two tables can describe the same part of a business and disagree. One might still exist because an old report depends on it. An analyst who’s been around knows which one to use. A new analyst, or an AI assistant, has to find that out somewhere.
+Our warehouse has older tables that look a lot like the ones analysts use for current reports. Someone who knows the data can usually tell them apart. An AI assistant needs a little more to go on.
 
-I built a Model Context Protocol (MCP) server for The St. James. It gives an assistant tools to work with company data and a dictionary that explains what the data means.
+I built a Model Context Protocol (MCP) server so analysts at The St. James could query the warehouse from an assistant.
 
-## Choosing the source
+## [The data dictionary]{#choosing-the-source}
 
-Connecting the assistant to a warehouse solved the mechanical part. The more interesting work was deciding what it should see. I documented the preferred source for a question, the business definition behind it and which older sources to leave out.
+I put together a data dictionary to go with the server. For each reporting question it covers, the dictionary explains what the business term means and which source to use. I left out older sources that could give a misleading answer.
 
-That distinction matters in review. When a number looks wrong, an analyst can start by asking which records went into it. Correct arithmetic won’t rescue the wrong starting set.
+The dictionary also gives an analyst a place to start when a number looks off. They can check which records the assistant counted.

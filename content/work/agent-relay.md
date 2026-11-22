@@ -2,15 +2,15 @@
 title: Agent Relay
 category: Personal software
 position: 4
-description: A local Raycast tool that keeps track of unfinished work across coding sessions and takes me back to the conversation that owns it.
+description: A Raycast tool I use to pick up unfinished work across coding sessions.
 ---
 
 # Agent Relay
 
-I kept opening old coding sessions to answer the same two questions. Where did I leave this, and does it need me?
+I was spending a fair amount of time looking through old coding sessions to remember where I’d left something. I wrote Agent Relay for Raycast, the launcher I use on my Mac.
 
-I built Agent Relay into Raycast, the launcher I already use on my Mac. It keeps the next prompt, open decisions and work waiting on somebody else alongside a link to the original session. Sessions in separate worktrees stay grouped under the same project.
+I can pull up a project, see what’s waiting on me and jump back to the conversation with the next prompt already saved. If I’ve used several Git worktrees for the same project, they show up together.
 
-## A second look
+## [Checking a branch]{#a-second-look}
 
-Finishing an implementation and checking it are separate steps. From Relay I can start a fresh, read-only session against the recorded branch. Its result stays with the work item until I review it. That gives me a place to make the decision even if the original conversation ended days ago.
+I also use it for review. Relay can open a fresh, read-only session on the branch I want checked. The result stays with the work item for when I get back to it.

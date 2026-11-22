@@ -2,7 +2,7 @@
 title: LeagueApps Programs Widget
 category: Web components
 position: 6
-description: Give marketing a way to publish sports programs across sites without waiting on a developer.
+description: A sports program listing the marketing team can configure in the CMS.
 sections:
   - id: the-problem
     label: Problem
@@ -22,134 +22,88 @@ sections:
 
 ::project-meta
 #role
-Self-initiated | The St. James
+Built for The St. James
 #timeline
 September – December 2025
-#stats
-112 commits • 10,831 net lines • 181 TS files, 118 Vue files
 #stack
 Vue 3, TypeScript, Web Components, Shadow DOM, Cloudflare Workers
 ::
 
-## The Problem
+## The problem
 
-The St. James embedded a vendor-provided JavaScript widget to display youth sports programs on their marketing site. The widget pulled program data from the LeagueApps registration platform and rendered it inline. In practice, it created three distinct problems.
+The marketing team used a vendor widget to list youth sports programs. Three things kept coming up.
 
-### Marketing Bottleneck
+- [Changing a listing]{#marketing-bottleneck} meant asking the vendor for a new configuration, even to show a different sport.
+- [Tracking]{#privacy-violation} started before a visitor had opted in. The widget loaded its own analytics script.
+- [The Back button]{#history-corruption} sometimes took visitors to the wrong page after they’d used the widget.
 
-Any change to the widget — adding a new sport, adjusting filters, updating display settings — meant reaching out to the vendor to get a new configuration instance. The marketing team couldn't make changes themselves, and it happened often enough to be a bottleneck.
+## The solution
 
-### Privacy Violation
-
-The vendor widget loaded Google Analytics tracking scripts from a third-party account on every page view, without user consent and outside the site's own analytics configuration. This injected tracking into a context the site operators didn't control and couldn't opt users out of — a clear privacy compliance issue.
-
-### History Corruption
-
-Because the site was a Vue SPA, the vendor widget's internal navigation conflicted with Vue Router's history management. Clicking the browser back button after interacting with the widget produced broken navigation states — sending users to unexpected pages or trapping them in loops. The widget was effectively breaking a core browser interaction.
-
----
-
-## The Solution
-
-Rather than patching around the vendor widget's issues, I built a replacement from scratch as a Web Component. The goal was a drop-in `<programs-widget>` element that could be configured entirely through HTML attributes, required no build step from the host site, and ran independently of the host application's framework.
-
-The widget fetches program data directly from LeagueApps public API endpoints, transforms and reshapes it into a filterable data table, and renders everything inside a Shadow DOM boundary. Configuration is declarative — the marketing team sets attributes like `data-sites`, `data-filter-sport`, and `data-columns` directly in the CMS without touching code.
-
-Deployed to Cloudflare Workers as a single JavaScript file that any page can load with a `<script>` tag.
-
----
+I wrote a replacement that reads program listings from LeagueApps. Marketing can pick the sports, filters and columns in the CMS. A family visiting the page can narrow the list by age, location or day of the week and go straight to registration.
 
 ## Architecture
 
-### Component Architecture
+### Component architecture
 
-The widget uses a **Facade pattern** to coordinate internal subsystems. `ProgramsWidget` (the Custom Element) delegates to `WidgetCore`, which orchestrates data, filtering, sorting, search, rendering, and events — each implemented as independent modules with their own state managers and logic.
+The host page loads one script and adds a `<programs-widget>` element. The element reads the settings from its HTML attributes. Separate modules handle fetching, searching and displaying programs.
 
-![Component Architecture Diagram](/images/work/component-architecture.svg)
+![How the widget connects its data, filters and table](/images/work/component-architecture.svg)
 
-### Data Pipeline
+### Data pipeline
 
-Program data flows through a three-stage pipeline: parallel fetch with deduplication, HTML sanitization and type normalization, then master/session grouping into a flat table structure. The processed data feeds into filter, search, and sort systems before pagination and rendering.
+The widget fetches the listings for each site, drops duplicate program IDs and groups sessions under their parent program before building the table.
 
-![Data Pipeline Diagram](/images/work/data-pipeline.svg)
+![How LeagueApps programs become rows in the table](/images/work/data-pipeline.svg)
 
-### Filter Architecture
+### Filter architecture
 
-The filter system uses a **two-tier model** — prefilters (set via HTML attributes) restrict the available dataset, then user-applied filters refine within that scope. Filter options are dynamically derived from the prefiltered data, so users only see options that exist in the current dataset.
+Marketing sets the starting list for each page. Visitors can narrow that list further. On a page set up for one sport, clearing the filters brings back the programs for that sport.
 
-![Filter Architecture Diagram](/images/work/filter-architecture.svg)
+![How page settings and visitor filters work together](/images/work/filter-architecture.svg)
 
----
-
-## Design Decisions
+## Design decisions
 
 ### Why Web Components
 
-The original host site ran Nuxt 2 (Vue 2), but the widget now runs across multiple domains — WordPress sites, static pages, and other CMS platforms. A framework-specific component would mean bundling a runtime, managing version conflicts, and coupling the widget's lifecycle to each host app. A Custom Element with Shadow DOM avoids all of this — the widget loads as a single script, registers itself, and runs in complete isolation. No framework dependency, no build integration, no assumptions about the host environment.
+The first site ran Nuxt 2. The same listing also needed to work in WordPress and on static pages. A custom HTML element meant each site could use the same script.
 
-### Shadow DOM for Real Isolation
+### [Site styles]{#shadow-dom-for-real-isolation}
 
-The vendor widget's CSS collided with site styles and vice versa. Shadow DOM provides genuine encapsulation — the widget's styles don't leak out, the host's styles don't bleed in. Using **closed mode** prevents external JavaScript from reaching into the widget's internals, which matters when running inside a CMS where other scripts are unpredictable.
+The old widget picked up styles from the page around it. Shadow DOM keeps the table and filter styles local to the widget.
 
-### Facade Pattern for Complexity Management
+### [Updating the table]{#facade-pattern-for-complexity-management}
 
-The widget coordinates data fetching, transformation, filtering (with parser and state manager), sorting, search (with highlight management), pagination, rendering, events, and configuration. That's 15+ modules. The Facade pattern gives `ProgramsWidget` a simplified API — it calls `core.initialize()` and `core.handleFilterChange()` without knowing that each call orchestrates half a dozen subsystems.
+The element passes changes to one controller. For example, selecting a filter updates the matching programs and the table through one call.
 
-### Constructable Stylesheets
+### Constructable stylesheets
 
-Traditional `<style>` injection in Shadow DOM creates a new stylesheet per instance. Constructable Stylesheets (`new CSSStyleSheet()` + `adoptedStyleSheets`) share a single parsed stylesheet across all instances. The widget includes a fallback to `<style>` injection for older browsers.
+Two widgets on the same page can share one parsed stylesheet. Older browsers get a style element inside each widget.
 
-### Dual Build Configuration
+### Dual build configuration
 
-Two Vite configs produce two outputs: an IIFE bundle (`programs-widget.js`) for production embedding via `<script>` tag, and a full Vue 3 application for the development sandbox. The sandbox provides a live testing environment with controls for every attribute and event, while the production build is a single file with no external dependencies.
+I use a Vue app to try different CMS settings during development. The file that ships to the sites is a separate JavaScript bundle hosted on Cloudflare Workers.
 
-### CSS Custom Highlight API for Search
+### CSS Custom Highlight API for search
 
-Search highlighting typically means wrapping matches in `<mark>` elements — which means modifying the DOM, re-triggering layout, and managing cleanup. The CSS Custom Highlight API highlights text ranges via CSS pseudo-elements without touching the DOM. A TreeWalker finds matching text nodes, creates Range objects, and registers them as a named highlight. The highlight renders via `::highlight(pw-search-highlight)` in CSS.
+The browser can highlight matching text without adding markup to every table cell. The widget finds the matching ranges and passes them to the CSS Custom Highlight API.
 
-### Filter State Separation
+### Filter state separation
 
-Filter state is split into three layers: initial state (from attributes at load time), prefilter state (configuration-level restrictions), and current state (user interactions). This separation means resetting filters restores the prefiltered state, not the unfiltered state — the marketing team's configuration acts as a permanent scope.
+The widget stores the page’s settings separately from the visitor’s choices. That gives the Reset button a known starting point.
 
-### Partial Re-Renders
+### Partial re-renders
 
-Typing in the search input triggers filtering on every keystroke. Full re-renders would destroy and recreate the entire table DOM, losing focus and scroll position. The widget detects when a partial update is sufficient — replacing only the `<tbody>`, sort indicators, and pagination controls while preserving the rest of the DOM structure.
+Typing a search updates the rows and pagination. The search field stays in place so the visitor can keep typing.
 
----
+## Key features
 
-## Key Features
+- Families can look for programs on any of their available days, or only programs that meet on all the days they select.
+- The layout switches from a table to cards when the widget has less room.
+- Tracking requires an explicit opt-in.
 
-- **Filterable data tables** with faceted filtering across sport, gender, age, type, season, experience level, location, and schedule day
-- **Schedule day matching** with "any" and "all" modes — find programs on _any_ of the selected days or _all_ of them
-- **Real-time search** across 14 fields with CSS Custom Highlight API for non-destructive text highlighting
-- **Sortable columns** with type-aware comparisons (numeric, date, day-of-week order, locale-aware strings)
-- **Mobile-first responsive design** using CSS container queries on the Shadow DOM host
-- **Consent-based tracking** — no analytics scripts load without explicit opt-in, replacing the vendor widget's unconsented third-party tracking
-- **XSS prevention** — all API data is HTML-escaped through a `textContent` setter before rendering; URLs are validated and normalized
-- **Declarative configuration** — every setting exposed as an HTML attribute, configurable through any CMS
-- **Parallel data fetching** across multiple API endpoints with deduplication by program ID
-- **Master/session grouping** — programs with multiple sessions display as grouped rows with shared metadata
-- **Custom Element lifecycle** — handles property-to-attribute reflection, pre-upgrade property assignment, and cleanup on disconnect
-- **CSS `::part()` selectors** — host sites can style specific widget internals without breaking encapsulation
+## Tech stack
 
----
-
-## Tech Stack
-
-- **Vue 3** — component framework (development sandbox)
-- **TypeScript** (strict mode) — type safety across 181 source files
-- **Custom Elements API** — `<programs-widget>` registered via `customElements.define()`
-- **Shadow DOM** (closed mode) — style and DOM encapsulation
-- **Constructable Stylesheets** — efficient shared styling with `<style>` fallback
-- **CSS Custom Highlight API** — search highlighting without DOM modification
-- **CSS Container Queries** — responsive layout based on widget width, not viewport
-- **Popover API** — native filter dropdowns without manual positioning
-- **Tailwind CSS v4** — utility-first styling (via `@tailwindcss/vite`)
-- **Vite** — dual build config (IIFE widget bundle + Vue dev app)
-- **Cloudflare Workers** — edge deployment via Wrangler
-- **Bun** — runtime and package manager
-
----
+TypeScript, Web Components, Vite and Cloudflare Workers. The development app uses Vue 3.
 
 ## Screenshots
 

@@ -37,9 +37,9 @@ useHead({
         <p class="byline">Senior software architect</p>
         <h1 id="intro">Matt Egan</h1>
         <p class="intro">
-          I build software at The St. James. I built an MCP server so analysts
-          can ask questions about our data. I also build the tools our engineers
-          use to check the work they hand to AI.
+          I joined The St. James in 2018 to work on the website and checkout.
+          One of my recent projects lets our analysts ask questions about
+          company data from the AI tools they already use.
         </p>
         <a class="button" href="#selected-work">See selected work</a>
       </div>
@@ -65,11 +65,11 @@ useHead({
       <ProjectList featured />
     </section>
     <section class="offclock">
-      <h2>Away from the keyboard</h2>
+      <h2>Outside work</h2>
       <p>
-        I framed walls in my basement, hung drywall and laid tile. I painted the
-        whole house, ceilings included. I like cutting in by hand. Never used
-        painter’s tape.
+        I spend a lot of my free time with my family. I like doing art with my
+        kid, watching sports, and working on whatever needs fixing around the
+        house. I tinker with AI at home, too.
       </p>
     </section>
   </main>

@@ -2,17 +2,15 @@
 title: Review workspaces
 category: Developer tools
 position: 2
-description: A proposed change gets its own running app and test data, so the reviewer can try the behavior described in the pull request.
+description: A way to open a pull request in a browser and try the change without switching my local checkout.
 ---
 
 # Review workspaces
 
-When a coding agent says it fixed something, I want to open the app and try it. That used to mean interrupting whatever I was working on to set up somebody else’s branch.
+I often want to try a fix while I have other work open. Checking out the branch, getting the right test data and starting the app can take longer than the review itself.
 
-At The St. James, I worked on a review workspace that runs a proposed change against its own data. The reviewer can use the browser, inspect the change and tie a finding to the revision they tested.
+I worked on a setup at The St. James that runs the app for a pull request with its own test data. I can open it in a browser and leave a finding against the exact revision I tried. That’s particularly handy when a coding agent pushes another revision during review.
 
-## When a check didn’t run
+## [Skipped checks]{#when-a-check-didnt-run}
 
-A review can get the code right and the database wrong. If the test data is out of date, some checks can’t run. I changed the review report to say which checks it skipped. Now the next reviewer can see exactly what still needs a test.
-
-That’s the part of an AI workflow I care about most. When I decide whether a change can ship, I need to know what someone actually tried.
+One change I made was to the report. Some checks need a current copy of the test database. When the data is out of date, the report lists the checks that didn’t run so the next reviewer knows what’s left.

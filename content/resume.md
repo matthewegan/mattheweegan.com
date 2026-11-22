@@ -13,11 +13,11 @@ Senior software architect · Washington, DC region\
 **Senior Software Architect**, February 2020 to present\
 **Senior Web Developer**, August 2018 to February 2020
 
-- Built an MCP server that connects AI assistants to company data. Defined preferred sources and business terms so analysts can check where an answer came from.
-- Developed review workflows that let engineers run a proposed change against its own test data, inspect it in a browser and tie findings to the revision under review.
-- Worked on the next generation of single sign-on, preserving the OpenID Connect contract and existing member accounts through the move from NestJS to Nuxt.
-- Led development of the company’s member-facing website, including cart, checkout, membership sales and payment integrations.
-- Built a self-service sports programs widget for marketing and a CMS tool that shows editors where a content block is in use.
+- Built an MCP server that connects AI assistants to company data. Wrote a data dictionary that tells the assistant which tables to use and how analysts define the terms in a report.
+- Worked on review environments where an engineer can open a pull request in a browser and test it with its own data.
+- Helped move the sign-in service from NestJS to Nuxt. Kept the existing account database and OpenID Connect interface.
+- Led development of the website members use to register and pay, including the shopping cart and checkout.
+- Built a sports program listing that marketing can update and a tool for finding pages that use a particular CMS block.
 
 ## Earlier work
 
@@ -25,7 +25,7 @@ Senior software architect · Washington, DC region\
 Built search for a nonprofit site, including direct links to results inside collapsed sections.
 
 **Pioneering Evolution** · Senior Web Application Developer, 2010 to 2018\
-Designed applications for U.S. Navy program offices. Worked with staff to map how they budgeted, tracked execution and reported results, then built the databases and interfaces behind those workflows.
+Designed applications for U.S. Navy program offices. Worked with staff on the databases and screens they used to plan budgets, track spending and report results.
 
 **Computer Software, Inc.** · Web Application Developer, 2008 to 2010\
 Moved from field technician to in-house developer. Built reports and web features for municipal clients.
