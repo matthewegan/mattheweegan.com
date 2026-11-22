@@ -36,12 +36,19 @@ useHead({
       <div class="cover-copy">
         <p class="byline">Senior software architect</p>
         <h1 id="intro">Matt Egan</h1>
-        <p class="intro">
-          I like being able to say “let me try that” and come back with working
-          software while the idea is still fresh. I use AI to try a few
-          approaches early. Once I can run them and read the code, I have a much
-          better sense of which one I’d ship.
-        </p>
+        <dl class="intro">
+          <dt>How it started</dt>
+          <dd>
+            I started as a field tech. My first developer job was at the same
+            company, writing reports and web tools for local governments.
+          </dd>
+          <dt>How it’s going</dt>
+          <dd>
+            I still like saying “let me try that.” With AI I can get a couple of
+            versions running while the idea is fresh, read the code, and decide
+            which one I’d ship.
+          </dd>
+        </dl>
         <a class="button" href="#selected-work">See selected work</a>
       </div>
       <div class="cover-art">

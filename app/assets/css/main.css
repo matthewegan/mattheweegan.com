@@ -127,6 +127,12 @@ h4 {
   font-size: clamp(1.08rem, 1.48vw, 1.36rem);
   line-height: 1.52;
 }
+.intro dt {
+  font-weight: 700;
+}
+.intro dd + dt {
+  margin-top: 0.8em;
+}
 .button {
   display: inline-flex;
   align-items: center;
