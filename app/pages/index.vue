@@ -37,10 +37,10 @@ useHead({
         <p class="byline">Senior software architect</p>
         <h1 id="intro">Matt Egan</h1>
         <p class="intro">
-          I like figuring out why something that sounds simple takes half an
-          afternoon. I usually ask someone to walk me through how they do it.
-          I’m interested in the parts I’d miss from reading the code, like what
-          they know to double-check and what they still have to do by hand.
+          I like being able to say “let me try that” and come back with working
+          software while the idea is still fresh. I use AI to try a few
+          approaches early. Once I can run them and read the code, I have a much
+          better sense of which one I’d ship.
         </p>
         <a class="button" href="#selected-work">See selected work</a>
       </div>
