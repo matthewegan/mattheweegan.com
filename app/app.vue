@@ -1,19 +1,38 @@
+<script setup lang="ts">
+useHead({ htmlAttrs: { lang: "en" } });
+useSeoMeta({
+  ogImage: "https://mattheweegan.com/og-image.png",
+  twitterCard: "summary_large_image",
+});
+</script>
+
 <template>
-  <div
-    class="min-h-screen bg-slate-950 text-slate-50 crt-scanlines crt-glow print:bg-white print:text-slate-900"
-  >
-    <!-- Skip to content link for accessibility -->
-    <a
-      href="#main-content"
-      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-teal-500 focus:text-slate-950 focus:font-mono focus:border focus:border-teal-400"
-    >
-      Skip to content
-    </a>
-
-    <!-- Global site header -->
-    <TerminalHeader />
-
-    <!-- Page content -->
+  <div class="sheet">
+    <a class="skip" href="#main-content">Skip to content</a>
+    <header class="masthead">
+      <NuxtLink class="signature" to="/" aria-label="Matthew Egan, home">
+        <img src="/favicon.svg" width="44" height="44" alt="" />
+        Matthew Egan
+      </NuxtLink>
+      <nav aria-label="Primary">
+        <NuxtLink to="/work">Work</NuxtLink>
+        <NuxtLink to="/services">Approach</NuxtLink>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
     <NuxtPage />
+    <footer id="contact">
+      <div>
+        <h2>Get in touch</h2>
+        <a class="email" href="mailto:matt@mattheweegan.com"
+          >matt@mattheweegan.com</a
+        >
+      </div>
+      <nav aria-label="More about Matt">
+        <a href="https://github.com/matthewegan">GitHub</a>
+        <a href="https://linkedin.com/in/matthew-egan-2a1b369">LinkedIn</a>
+        <NuxtLink to="/resume">Résumé</NuxtLink>
+      </nav>
+    </footer>
   </div>
 </template>
